@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Surfers · Find Your Next Remote Role</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F3EE;--surface:#FFFFFF;--surface2:#F0EBE3;
+  --border-light:#E5DDD4;--border-mid:#D4C9BC;
+  --navy:#1B2340;--navy2:#2C3659;
+  --teal:#3DBFBF;--teal-light:#E8F8F8;--teal-mid:#B8ECEC;
+  --orange:#F5A623;--orange-light:#FEF3E0;
+  --coral:#E84040;--muted:#8A8FA8;--muted2:#5C6178;
+  --font:'Plus Jakarta Sans',sans-serif;
+  --r-sm:8px;--r-md:10px;--r-lg:12px;--r-xl:16px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--navy);font-family:var(--font);font-size:14px;line-height:1.5;min-height:100vh}
+.nav{background:var(--navy);height:56px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;z-index:300;gap:12px}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--teal),var(--orange));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff}
+.logo-name{font-size:15px;font-weight:700;color:#fff}
+.nav-end{margin-left:auto;display:flex;align-items:center;gap:8px}
+.live-pill{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.2);border-radius:20px;padding:4px 10px;color:rgba(255,255,255,0.7)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.nav-stat{font-size:11px;font-weight:600;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:4px 10px;color:rgba(255,255,255,0.55)}
+.nav-stat b{color:#fff}
+
+.filter-bar{background:var(--surface);border-bottom:1px solid var(--border-light);padding:0 20px;position:sticky;top:56px;z-index:200}
+.filter-bar-inner{display:flex;align-items:center;gap:8px;max-width:1320px;margin:0 auto;padding:10px 0;overflow-x:auto;scrollbar-width:none}
+.filter-bar-inner::-webkit-scrollbar{display:none}
+.search-input{font-family:var(--font);font-size:13px;padding:7px 14px;border:1.5px solid var(--border-light);border-radius:var(--r-md);outline:none;color:var(--navy);transition:border .15s;min-width:200px}
+.search-input:focus{border-color:var(--teal)}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:var(--surface);border:1.5px solid var(--border-light);border-radius:var(--r-md);font-family:var(--font);font-size:12px;font-weight:600;color:var(--muted2);cursor:pointer;transition:all .15s;white-space:nowrap}
+.chip:hover,.chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.clear-btn{font-size:12px;font-weight:600;color:var(--teal);background:none;border:none;cursor:pointer;padding:6px 8px;display:none;font-family:var(--font)}
+.clear-btn.visible{display:block}
+
+.main-wrap{max-width:1320px;margin:0 auto;padding:24px 20px;display:grid;grid-template-columns:1fr;gap:12px}
+
+.skeleton{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--r-xl);padding:20px 24px;animation:shimmer 1.5s infinite}
+@keyframes shimmer{0%,100%{opacity:1}50%{opacity:.5}}
+.sk-line{height:14px;background:var(--border-light);border-radius:4px;margin-bottom:8px}
+.sk-line.wide{width:60%}.sk-line.med{width:40%}.sk-line.short{width:25%}
+
+.job-card{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--r-xl);padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all .15s;text-decoration:none;color:inherit;cursor:pointer}
+.job-card:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(61,191,191,0.1);transform:translateY(-1px)}
+.job-logo{width:44px;height:44px;border-radius:10px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:var(--teal);flex-shrink:0}
+.job-body{flex:1;min-width:0}
+.job-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.job-company{font-size:13px;color:var(--muted2);margin-bottom:8px}
+.job-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--surface2);color:var(--muted2)}
+.tag.remote{background:var(--teal-light);color:var(--teal)}
+.tag.tech{background:#EEF2FF;color:#4F46E5}
+.tag.sales{background:#FEF3C7;color:#D97706}
+.tag.marketing{background:#FCE7F3;color:#DB2777}
+.tag.design{background:#F3E8FF;color:#9333EA}
+.tag.finance{background:#ECFDF5;color:#059669}
+.tag.hr{background:#FFF7ED;color:#EA580C}
+.tag.data{background:#EFF6FF;color:#2563EB}
+.job-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.apply-btn{font-size:12px;font-weight:700;color:var(--teal);border:1.5px solid var(--teal);border-radius:var(--r-md);padding:6px 14px;background:transparent;cursor:pointer;transition:all .15s;text-decoration:none;white-space:nowrap}
+.apply-btn:hover{background:var(--teal);color:#fff}
+
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state h3{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--navy)}
+
+.error-state{background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--r-xl);padding:24px;margin:24px 0;text-align:center}
+.error-state h3{color:var(--coral);font-size:16px;font-weight:700;margin-bottom:8px}
+.error-state p{color:var(--muted2);font-size:13px;margin-bottom:16px}
+.agency-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.agency-link{font-size:12px;font-weight:600;color:var(--teal);border:1px solid var(--teal-mid);border-radius:20px;padding:4px 12px;text-decoration:none;background:var(--teal-light)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="#">
+    <div class="logo-icon">JS</div>
+    <span class="logo-name">Job Surfers</span>
+  </a>
+  <div class="nav-end">
+    <div class="live-pill"><span class="live-dot"></span>Live</div>
+    <div class="nav-stat"><b id="job-count">—</b> roles</div>
+  </div>
+</nav>
+
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <input class="search-input" id="search" placeholder="Search roles, companies..." oninput="applyFilters()">
+    <div class="chip" data-cat="tech" onclick="toggleCat(this)">Tech</div>
+    <div class="chip" data-cat="sales" onclick="toggleCat(this)">Sales</div>
+    <div class="chip" data-cat="marketing" onclick="toggleCat(this)">Marketing</div>
+    <div class="chip" data-cat="design" onclick="toggleCat(this)">Design</div>
+    <div class="chip" data-cat="finance" onclick="toggleCat(this)">Finance</div>
+    <div class="chip" data-cat="hr" onclick="toggleCat(this)">HR</div>
+    <div class="chip" data-cat="data" onclick="toggleCat(this)">Data</div>
+    <button class="clear-btn" id="clear-btn" onclick="clearFilters()">Clear all</button>
+  </div>
+</div>
+
+<div class="main-wrap" id="jobs-wrap">
+  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
+  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
+  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
+  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
+  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
+</div>
+
+<script>
+const SUPABASE_URL = "https://iuhhcbvlgmlvflwzcdss.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1aGhjYnZsZ21sdmZsd3pjZHNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2NzQ4NDksImV4cCI6MjA4OTI1MDg0OX0.2YSn_tK8Oz7mZxC3hGqG0y208a5JBEPqGTyhAG1Qt8w";
+
+const AGENCIES = [
+  {name:"Activate Talent",url:"https://apply.workable.com/careersactivatetalent/"},
+  {name:"HireSur",url:"https://apply.workable.com/hiresur/"},
+  {name:"Athyna",url:"https://www.athyna.com/"},
+  {name:"Nearsure",url:"https://www.nearsure.com/job-opportunities"},
+  {name:"Andela",url:"https://talent.andela.com/"},
+  {name:"Silver.dev",url:"https://silver.dev"},
+  {name:"Lupa Hire",url:"https://www.lupahire.com/open-roles"},
+  {name:"Near",url:"https://jobs.hirewithnear.com/jobs/"},
+  {name:"Simera",url:"https://jobs.simera.io/"},
+  {name:"TLNT",url:"https://recruitcrm.io/jobs/TLNT_Group_jobs"},
+];
+
+let allJobs = [];
+let activeCats = [];
+
+async function loadJobs() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/jobs?is_active=eq.true&order=scraped_at.desc`,
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+    );
+    if (!res.ok) throw new Error("fetch failed");
+    allJobs = await res.json();
+    document.getElementById("job-count").textContent = allJobs.length;
+    applyFilters();
+  } catch(e) {
+    showError();
+  }
+}
+
+function applyFilters() {
+  const q = document.getElementById("search").value.toLowerCase();
+  const filtered = allJobs.filter(j => {
+    const matchQ = !q || j.title.toLowerCase().includes(q) || (j.source_name||"").toLowerCase().includes(q) || (j.location||"").toLowerCase().includes(q);
+    const matchCat = activeCats.length === 0 || activeCats.includes(j.category);
+    return matchQ && matchCat;
+  });
+  renderJobs(filtered);
+}
+
+function renderJobs(jobs) {
+  const wrap = document.getElementById("jobs-wrap");
+  if (jobs.length === 0) {
+    wrap.innerHTML = `<div class="empty-state"><h3>No roles found</h3><p>Try different filters or search terms.</p></div>`;
+    return;
+  }
+  wrap.innerHTML = jobs.map(j => {
+    const initials = (j.source_name||"?").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
+    return `
+    <a class="job-card" href="${j.apply_url||'#'}" target="_blank" rel="noopener">
+      <div class="job-logo">${initials}</div>
+      <div class="job-body">
+        <div class="job-title">${j.title}</div>
+        <div class="job-company">${j.source_name||''} · ${j.location||'LATAM'}</div>
+        <div class="job-tags">
+          ${j.category ? `<span class="tag ${j.category}">${j.category}</span>` : ''}
+          ${j.work_type === 'remote' ? '<span class="tag remote">Remote</span>' : ''}
+          ${j.seniority ? `<span class="tag">${j.seniority}</span>` : ''}
+        </div>
+      </div>
+      <div class="job-right">
+        <a class="apply-btn" href="${j.apply_url||'#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
+      </div>
+    </a>`;
+  }).join("");
+}
+
+function showError() {
+  document.getElementById("jobs-wrap").innerHTML = `
+    <div class="error-state">
+      <h3>Could not load jobs</h3>
+      <p>Browse our partner agencies directly:</p>
+      <div class="agency-links">
+        ${AGENCIES.map(a=>`<a class="agency-link" href="${a.url}" target="_blank">${a.name}</a>`).join("")}
+      </div>
+    </div>`;
+}
+
+function toggleCat(el) {
+  const cat = el.dataset.cat;
+  if (activeCats.includes(cat)) {
+    activeCats = activeCats.filter(c => c !== cat);
+    el.classList.remove("active");
+  } else {
+    activeCats.push(cat);
+    el.classList.add("active");
+  }
+  document.getElementById("clear-btn").classList.toggle("visible", activeCats.length > 0);
+  applyFilters();
+}
+
+function clearFilters() {
+  activeCats = [];
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  document.getElementById("clear-btn").classList.remove("visible");
+  document.getElementById("search").value = "";
+  applyFilters();
+}
+
+loadJobs();
+</script>
+</body>
+</html>
