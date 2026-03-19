@@ -3,113 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Surfers · Find Your Next Remote Role</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Job Surfers · Find Your Dream Job in Latin America</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#F7F3EE;--surface:#FFFFFF;--surface2:#F0EBE3;
-  --border-light:#E5DDD4;--border-mid:#D4C9BC;
-  --navy:#1B2340;--navy2:#2C3659;
-  --teal:#3DBFBF;--teal-light:#E8F8F8;--teal-mid:#B8ECEC;
-  --orange:#F5A623;--orange-light:#FEF3E0;
-  --coral:#E84040;--muted:#8A8FA8;--muted2:#5C6178;
-  --font:'Plus Jakarta Sans',sans-serif;
-  --r-sm:8px;--r-md:10px;--r-lg:12px;--r-xl:16px;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--navy);font-family:var(--font);font-size:14px;line-height:1.5;min-height:100vh}
-.nav{background:var(--navy);height:56px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;z-index:300;gap:12px}
-.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
-.logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--teal),var(--orange));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff}
-.logo-name{font-size:15px;font-weight:700;color:#fff}
-.nav-end{margin-left:auto;display:flex;align-items:center;gap:8px}
-.live-pill{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.2);border-radius:20px;padding:4px 10px;color:rgba(255,255,255,0.7)}
-.live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-.nav-stat{font-size:11px;font-weight:600;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:4px 10px;color:rgba(255,255,255,0.55)}
-.nav-stat b{color:#fff}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #F7F6F3; color: #1a1a1a; font-size: 13px; -webkit-font-smoothing: antialiased; }
 
-.filter-bar{background:var(--surface);border-bottom:1px solid var(--border-light);padding:0 20px;position:sticky;top:56px;z-index:200}
-.filter-bar-inner{display:flex;align-items:center;gap:8px;max-width:1320px;margin:0 auto;padding:10px 0;overflow-x:auto;scrollbar-width:none}
-.filter-bar-inner::-webkit-scrollbar{display:none}
-.search-input{font-family:var(--font);font-size:13px;padding:7px 14px;border:1.5px solid var(--border-light);border-radius:var(--r-md);outline:none;color:var(--navy);transition:border .15s;min-width:200px}
-.search-input:focus{border-color:var(--teal)}
-.chip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:var(--surface);border:1.5px solid var(--border-light);border-radius:var(--r-md);font-family:var(--font);font-size:12px;font-weight:600;color:var(--muted2);cursor:pointer;transition:all .15s;white-space:nowrap}
-.chip:hover,.chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
-.clear-btn{font-size:12px;font-weight:600;color:var(--teal);background:none;border:none;cursor:pointer;padding:6px 8px;display:none;font-family:var(--font)}
-.clear-btn.visible{display:block}
+  nav { background: #fff; border-bottom: 1px solid #ECEAE5; padding: 0 28px; height: 52px; display: flex; align-items: center; }
+  .nav-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+  .nav-logo-img { width: 30px; height: 30px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
+  .nav-logo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .nav-logo-text { font-size: 15px; font-weight: 600; color: #1a1a1a; letter-spacing: -0.3px; }
 
-.main-wrap{max-width:1320px;margin:0 auto;padding:24px 20px;display:grid;grid-template-columns:1fr;gap:12px}
+  .hero { background: #fff; border-bottom: 1px solid #ECEAE5; padding: 56px 28px 48px; text-align: center; }
+  .hero-pill { display: inline-flex; align-items: center; gap: 6px; background: #F0FDF9; border: 1px solid #AEECD8; border-radius: 20px; padding: 3px 11px; font-size: 11px; font-weight: 600; color: #0D9488; margin-bottom: 20px; }
+  .pill-dot { width: 5px; height: 5px; border-radius: 50%; background: #3DBFBF; animation: blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.3} }
+  .hero h1 { color: #1a1a1a; font-size: 36px; font-weight: 700; letter-spacing: -1.2px; line-height: 1.12; margin-bottom: 12px; }
+  .hero h1 em { font-style: normal; color: #3DBFBF; }
+  .hero-sub { color: #6B7280; font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
+  .tracker-hint { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #0D9488; font-weight: 500; margin-bottom: 24px; }
+  .hero-search { background: #fff; border: 1.5px solid #ECEAE5; border-radius: 10px; padding: 4px; display: flex; max-width: 560px; margin: 0 auto; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.04); }
+  .hero-search:focus-within { border-color: #3DBFBF; box-shadow: 0 0 0 3px rgba(61,191,191,0.1); }
+  .sf { display: flex; align-items: center; gap: 7px; padding: 7px 12px; flex: 1; }
+  .sf svg { color: #9CA3AF; flex-shrink: 0; }
+  .sf input { border: none; outline: none; font-size: 13px; flex: 1; color: #1a1a1a; font-family: inherit; background: transparent; }
+  .sf input::placeholder { color: #9CA3AF; }
+  .ssep { width: 1px; background: #ECEAE5; margin: 6px 0; }
+  .sbtn { background: #1a1a1a; color: #fff; border: none; border-radius: 7px; padding: 8px 18px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap; }
+  .sbtn:hover { opacity: 0.85; }
+  .popular { margin-top: 14px; display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; align-items: center; }
+  .pop-label { color: #9CA3AF; font-size: 11px; }
+  .popular a { background: #F7F6F3; color: #374151; border-radius: 5px; padding: 2px 8px; font-size: 11px; font-weight: 500; text-decoration: none; border: 1px solid #ECEAE5; cursor: pointer; }
+  .popular a:hover { border-color: #3DBFBF; color: #0D9488; }
 
-.skeleton{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--r-xl);padding:20px 24px;animation:shimmer 1.5s infinite}
-@keyframes shimmer{0%,100%{opacity:1}50%{opacity:.5}}
-.sk-line{height:14px;background:var(--border-light);border-radius:4px;margin-bottom:8px}
-.sk-line.wide{width:60%}.sk-line.med{width:40%}.sk-line.short{width:25%}
+  .stats-bar { background: #F7F6F3; border-bottom: 1px solid #ECEAE5; padding: 8px 28px; display: flex; gap: 10px; justify-content: center; align-items: center; font-size: 12px; color: #6B7280; }
+  .stats-bar b { color: #1a1a1a; font-weight: 600; }
+  .sdot { color: #D1D5DB; }
 
-.job-card{background:var(--surface);border:1px solid var(--border-light);border-radius:var(--r-xl);padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all .15s;text-decoration:none;color:inherit;cursor:pointer}
-.job-card:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(61,191,191,0.1);transform:translateY(-1px)}
-.job-logo{width:44px;height:44px;border-radius:10px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:var(--teal);flex-shrink:0}
-.job-body{flex:1;min-width:0}
-.job-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.job-company{font-size:13px;color:var(--muted2);margin-bottom:8px}
-.job-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--surface2);color:var(--muted2)}
-.tag.remote{background:var(--teal-light);color:var(--teal)}
-.tag.tech{background:#EEF2FF;color:#4F46E5}
-.tag.sales{background:#FEF3C7;color:#D97706}
-.tag.marketing{background:#FCE7F3;color:#DB2777}
-.tag.design{background:#F3E8FF;color:#9333EA}
-.tag.finance{background:#ECFDF5;color:#059669}
-.tag.hr{background:#FFF7ED;color:#EA580C}
-.tag.data{background:#EFF6FF;color:#2563EB}
-.job-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
-.apply-btn{font-size:12px;font-weight:700;color:var(--teal);border:1.5px solid var(--teal);border-radius:var(--r-md);padding:6px 14px;background:transparent;cursor:pointer;transition:all .15s;text-decoration:none;white-space:nowrap}
-.apply-btn:hover{background:var(--teal);color:#fff}
+  .layout { display: grid; grid-template-columns: 208px 1fr; gap: 18px; max-width: 1040px; margin: 18px auto; padding: 0 28px 40px; }
 
-.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
-.empty-state h3{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--navy)}
+  .sidebar { display: flex; flex-direction: column; gap: 8px; }
+  .fbox { background: #fff; border-radius: 8px; border: 1px solid #ECEAE5; padding: 12px 14px; }
+  .ftitle { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #9CA3AF; margin-bottom: 8px; }
+  .fopt { display: flex; align-items: center; justify-content: space-between; padding: 4px 5px; border-radius: 5px; cursor: pointer; }
+  .fopt:hover { background: #F7F6F3; }
+  .fopt label { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #374151; cursor: pointer; }
+  .fopt input { width: 13px; height: 13px; accent-color: #3DBFBF; }
+  .fcount { font-size: 10px; color: #9CA3AF; }
+  .fopt.on label { color: #0D9488; font-weight: 500; }
 
-.error-state{background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--r-xl);padding:24px;margin:24px 0;text-align:center}
-.error-state h3{color:var(--coral);font-size:16px;font-weight:700;margin-bottom:8px}
-.error-state p{color:var(--muted2);font-size:13px;margin-bottom:16px}
-.agency-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.agency-link{font-size:12px;font-weight:600;color:var(--teal);border:1px solid var(--teal-mid);border-radius:20px;padding:4px 12px;text-decoration:none;background:var(--teal-light)}
+  .list-header { display: flex; align-items: center; margin-bottom: 10px; }
+  .lh-left h2 { font-size: 13px; font-weight: 600; }
+  .lh-left span { font-size: 11px; color: #9CA3AF; margin-top: 1px; display: block; }
+
+  /* Skeleton */
+  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 16px; animation: shimmer 1.5s infinite; }
+  @keyframes shimmer { 0%,100%{opacity:1}50%{opacity:0.5} }
+  .sk-line { height: 12px; background: #ECEAE5; border-radius: 4px; margin-bottom: 8px; }
+  .sk-line.w60 { width: 60%; }
+  .sk-line.w40 { width: 40%; }
+  .sk-line.w25 { width: 25%; }
+
+  .job-list { display: flex; flex-direction: column; gap: 6px; }
+  .jcard { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.12s; text-decoration: none; color: inherit; }
+  .jcard:hover { border-color: #3DBFBF; box-shadow: 0 2px 12px rgba(61,191,191,0.08); }
+  .jlogo { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+  .lt{background:#F0FDF9;color:#0D9488}
+  .lo{background:#FEF9EC;color:#D97706}
+  .ln{background:#F1F2F7;color:#1B2340}
+  .lc{background:#FEF2F2;color:#DC2626}
+  .lp{background:#F5F3FF;color:#7C3AED}
+  .jinfo { flex: 1; min-width: 0; }
+  .jtitle { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
+  .jmeta { font-size: 11px; color: #9CA3AF; margin-bottom: 6px; }
+  .jtags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tag { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; }
+  .tt{background:#F0FDF9;color:#0D9488;border:1px solid #AEECD8}
+  .to{background:#FEF9EC;color:#D97706;border:1px solid #FDE68A}
+  .tg{background:#F7F6F3;color:#6B7280;border:1px solid #ECEAE5}
+  .tn{background:#F1F2F7;color:#1B2340;border:1px solid #D1D5E0}
+  .jright { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+  .jdate { font-size: 10px; color: #9CA3AF; }
+  .abtn { font-size: 11px; font-weight: 600; color: #1a1a1a; border: 1px solid #ECEAE5; border-radius: 6px; padding: 5px 11px; background: #fff; cursor: pointer; font-family: inherit; transition: all 0.12s; text-decoration: none; }
+  .abtn:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+  .empty-state { text-align: center; padding: 60px 20px; color: #9CA3AF; }
+  .empty-state h3 { font-size: 15px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+
+  .error-state { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 12px; }
+  .error-state h3 { color: #DC2626; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .error-state p { color: #6B7280; font-size: 12px; margin-bottom: 12px; }
+  .agency-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .agency-link { font-size: 11px; font-weight: 600; color: #0D9488; border: 1px solid #AEECD8; border-radius: 20px; padding: 3px 10px; text-decoration: none; background: #F0FDF9; }
+
+  @media (max-width: 768px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .hero h1 { font-size: 26px; }
+    .hero-search { flex-direction: column; }
+    .ssep { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<nav class="nav">
+<nav>
   <a class="nav-logo" href="#">
-    <div class="logo-icon">JS</div>
-    <span class="logo-name">Job Surfers</span>
+    <div class="nav-logo-img">
+      <img src="https://iuhhcbvlgmlvflwzcdss.supabase.co/storage/v1/object/public/Job%20Surfers/Logo%20Job%20Surfers%20AI.webp" alt="Job Surfers">
+    </div>
+    <span class="nav-logo-text">Job Surfers</span>
   </a>
-  <div class="nav-end">
-    <div class="live-pill"><span class="live-dot"></span>Live</div>
-    <div class="nav-stat"><b id="job-count">—</b> roles</div>
-  </div>
 </nav>
 
-<div class="filter-bar">
-  <div class="filter-bar-inner">
-    <input class="search-input" id="search" placeholder="Search roles, companies..." oninput="applyFilters()">
-    <div class="chip" data-cat="tech" onclick="toggleCat(this)">Tech</div>
-    <div class="chip" data-cat="sales" onclick="toggleCat(this)">Sales</div>
-    <div class="chip" data-cat="marketing" onclick="toggleCat(this)">Marketing</div>
-    <div class="chip" data-cat="design" onclick="toggleCat(this)">Design</div>
-    <div class="chip" data-cat="finance" onclick="toggleCat(this)">Finance</div>
-    <div class="chip" data-cat="hr" onclick="toggleCat(this)">HR</div>
-    <div class="chip" data-cat="data" onclick="toggleCat(this)">Data</div>
-    <button class="clear-btn" id="clear-btn" onclick="clearFilters()">Clear all</button>
+<div class="hero">
+  <div class="hero-pill"><span class="pill-dot"></span> <span id="pill-count">—</span> roles updated today</div>
+  <h1>Find your <em>dream job</em><br>in Latin America</h1>
+  <p class="hero-sub">Curated opportunities from 40+ top recruiting agencies.</p>
+  <div class="tracker-hint">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8l2 2 4-4"/></svg>
+    Complete your application tracker after applying
+  </div>
+  <div class="hero-search">
+    <div class="sf">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>
+      <input id="search-role" placeholder="Job title, skill or company..." oninput="applyFilters()">
+    </div>
+    <div class="ssep"></div>
+    <div class="sf" style="max-width:160px">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2a5 5 0 015 5c0 3.5-5 9-5 9S3 10.5 3 7a5 5 0 015-5z"/></svg>
+      <input id="search-loc" placeholder="Remote or country" oninput="applyFilters()">
+    </div>
+    <button class="sbtn" onclick="applyFilters()">Search</button>
+  </div>
+  <div class="popular">
+    <span class="pop-label">Popular:</span>
+    <a onclick="setSearch('Engineer')">Engineer</a>
+    <a onclick="setSearch('Senior')">Senior</a>
+    <a onclick="setSearch('Remote')">Remote</a>
+    <a onclick="setSearch('Sales')">Sales</a>
+    <a onclick="setSearch('React')">React</a>
   </div>
 </div>
 
-<div class="main-wrap" id="jobs-wrap">
-  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
-  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
-  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
-  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
-  <div class="skeleton"><div class="sk-line wide"></div><div class="sk-line med"></div><div class="sk-line short"></div></div>
+<div class="stats-bar">
+  <span><b id="total-count">—</b> active roles</span>
+  <span class="sdot">·</span>
+  <span><b>40+</b> agencies</span>
+  <span class="sdot">·</span>
+  <span>Updated <b>daily at 6 AM</b></span>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="fbox">
+      <div class="ftitle">Category</div>
+      <div class="fopt" onclick="toggleFilter('cat','tech',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Tech & Engineering</label><span class="fcount" id="cnt-tech">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','sales',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Sales</label><span class="fcount" id="cnt-sales">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','marketing',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Marketing</label><span class="fcount" id="cnt-marketing">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','design',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Design</label><span class="fcount" id="cnt-design">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','finance',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Finance</label><span class="fcount" id="cnt-finance">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','hr',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> HR & Talent</label><span class="fcount" id="cnt-hr">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','data',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Data</label><span class="fcount" id="cnt-data">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','ops',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Operations</label><span class="fcount" id="cnt-ops">—</span></div>
+    </div>
+    <div class="fbox">
+      <div class="ftitle">Work Type</div>
+      <div class="fopt" onclick="toggleFilter('wt','remote',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Remote</label><span class="fcount" id="cnt-remote">—</span></div>
+      <div class="fopt" onclick="toggleFilter('wt','hybrid',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Hybrid</label><span class="fcount" id="cnt-hybrid">—</span></div>
+      <div class="fopt" onclick="toggleFilter('wt','onsite',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> On-site</label><span class="fcount" id="cnt-onsite">—</span></div>
+    </div>
+    <div class="fbox">
+      <div class="ftitle">Seniority</div>
+      <div class="fopt" onclick="toggleFilter('sn','junior',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Junior</label><span class="fcount" id="cnt-junior">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','mid',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Mid-level</label><span class="fcount" id="cnt-mid">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','senior',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Senior</label><span class="fcount" id="cnt-senior">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','lead',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Lead</label><span class="fcount" id="cnt-lead">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','director',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Director</label><span class="fcount" id="cnt-director">—</span></div>
+    </div>
+  </aside>
+
+  <div>
+    <div class="list-header">
+      <div class="lh-left">
+        <h2 id="results-title">Loading jobs...</h2>
+        <span id="results-sub">Please wait</span>
+      </div>
+    </div>
+    <div id="jobs-wrap">
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -129,8 +218,124 @@ const AGENCIES = [
   {name:"TLNT",url:"https://recruitcrm.io/jobs/TLNT_Group_jobs"},
 ];
 
+const LOGO_COLORS = ['lt','lo','ln','lc','lp'];
 let allJobs = [];
-let activeCats = [];
+let filters = { cat: [], wt: [], sn: [] };
+
+function logoClass(name) {
+  let h = 0;
+  for (let c of (name||'')) h = (h * 31 + c.charCodeAt(0)) & 0xffff;
+  return LOGO_COLORS[h % LOGO_COLORS.length];
+}
+
+function initials(name) {
+  return (name||'?').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase() || '?';
+}
+
+function setSearch(val) {
+  document.getElementById('search-role').value = val;
+  applyFilters();
+}
+
+function toggleFilter(group, val, el) {
+  const cb = el.querySelector('input[type=checkbox]');
+  const idx = filters[group].indexOf(val);
+  if (idx > -1) {
+    filters[group].splice(idx, 1);
+    el.classList.remove('on');
+    cb.checked = false;
+  } else {
+    filters[group].push(val);
+    el.classList.add('on');
+    cb.checked = true;
+  }
+  applyFilters();
+}
+
+function applyFilters() {
+  const role = document.getElementById('search-role').value.toLowerCase();
+  const loc = document.getElementById('search-loc').value.toLowerCase();
+
+  const filtered = allJobs.filter(j => {
+    const mRole = !role || (j.title||'').toLowerCase().includes(role) || (j.source_name||'').toLowerCase().includes(role) || (j.category||'').toLowerCase().includes(role);
+    const mLoc = !loc || (j.location||'').toLowerCase().includes(loc) || (j.work_type||'').toLowerCase().includes(loc);
+    const mCat = filters.cat.length === 0 || filters.cat.includes(j.category);
+    const mWt = filters.wt.length === 0 || filters.wt.includes(j.work_type);
+    const mSn = filters.sn.length === 0 || filters.sn.includes(j.seniority);
+    return mRole && mLoc && mCat && mWt && mSn;
+  });
+
+  renderJobs(filtered);
+}
+
+function updateCounts() {
+  const cats = ['tech','sales','marketing','design','finance','hr','data','ops'];
+  cats.forEach(c => {
+    const el = document.getElementById('cnt-' + c);
+    if (el) el.textContent = allJobs.filter(j => j.category === c).length;
+  });
+  ['remote','hybrid','onsite'].forEach(w => {
+    const el = document.getElementById('cnt-' + w);
+    if (el) el.textContent = allJobs.filter(j => j.work_type === w).length;
+  });
+  ['junior','mid','senior','lead','director'].forEach(s => {
+    const el = document.getElementById('cnt-' + s);
+    if (el) el.textContent = allJobs.filter(j => j.seniority === s).length;
+  });
+}
+
+function renderJobs(jobs) {
+  const wrap = document.getElementById('jobs-wrap');
+  const title = document.getElementById('results-title');
+  const sub = document.getElementById('results-sub');
+
+  document.getElementById('total-count').textContent = allJobs.length;
+  document.getElementById('pill-count').textContent = allJobs.length;
+
+  if (jobs.length === 0) {
+    title.textContent = '0 jobs found';
+    sub.textContent = 'Try different filters or search terms';
+    wrap.innerHTML = `<div class="empty-state"><h3>No roles match your search</h3><p>Try adjusting your filters or search terms.</p></div>`;
+    return;
+  }
+
+  title.textContent = `${jobs.length} jobs found`;
+  sub.textContent = 'Sorted by latest';
+
+  wrap.innerHTML = '<div class="job-list">' + jobs.map(j => {
+    const cls = logoClass(j.source_name);
+    const ini = initials(j.source_name);
+    const wtTag = j.work_type ? `<span class="tag tt">${j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1)}</span>` : '';
+    const catTag = j.category ? `<span class="tag tn">${j.category.charAt(0).toUpperCase()+j.category.slice(1)}</span>` : '';
+    const snTag = j.seniority ? `<span class="tag tg">${j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1)}</span>` : '';
+    return `
+      <a class="jcard" href="${j.apply_url||'#'}" target="_blank" rel="noopener">
+        <div class="jlogo ${cls}">${ini}</div>
+        <div class="jinfo">
+          <div class="jtitle">${j.title||''}</div>
+          <div class="jmeta">${j.source_name||''} · ${j.location||'LATAM'}</div>
+          <div class="jtags">${catTag}${wtTag}${snTag}</div>
+        </div>
+        <div class="jright">
+          <div class="jdate">Recently posted</div>
+          <a class="abtn" href="${j.apply_url||'#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
+        </div>
+      </a>`;
+  }).join('') + '</div>';
+}
+
+function showError() {
+  document.getElementById('jobs-wrap').innerHTML = `
+    <div class="error-state">
+      <h3>Could not load jobs</h3>
+      <p>Browse our partner agencies directly:</p>
+      <div class="agency-links">
+        ${AGENCIES.map(a=>`<a class="agency-link" href="${a.url}" target="_blank">${a.name}</a>`).join('')}
+      </div>
+    </div>`;
+  document.getElementById('results-title').textContent = 'Could not load jobs';
+  document.getElementById('results-sub').textContent = 'Browse agencies directly below';
+}
 
 async function loadJobs() {
   try {
@@ -138,82 +343,13 @@ async function loadJobs() {
       `${SUPABASE_URL}/rest/v1/jobs?is_active=eq.true&order=scraped_at.desc`,
       { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
     );
-    if (!res.ok) throw new Error("fetch failed");
+    if (!res.ok) throw new Error('fetch failed');
     allJobs = await res.json();
-    document.getElementById("job-count").textContent = allJobs.length;
+    updateCounts();
     applyFilters();
   } catch(e) {
     showError();
   }
-}
-
-function applyFilters() {
-  const q = document.getElementById("search").value.toLowerCase();
-  const filtered = allJobs.filter(j => {
-    const matchQ = !q || j.title.toLowerCase().includes(q) || (j.source_name||"").toLowerCase().includes(q) || (j.location||"").toLowerCase().includes(q);
-    const matchCat = activeCats.length === 0 || activeCats.includes(j.category);
-    return matchQ && matchCat;
-  });
-  renderJobs(filtered);
-}
-
-function renderJobs(jobs) {
-  const wrap = document.getElementById("jobs-wrap");
-  if (jobs.length === 0) {
-    wrap.innerHTML = `<div class="empty-state"><h3>No roles found</h3><p>Try different filters or search terms.</p></div>`;
-    return;
-  }
-  wrap.innerHTML = jobs.map(j => {
-    const initials = (j.source_name||"?").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
-    return `
-    <a class="job-card" href="${j.apply_url||'#'}" target="_blank" rel="noopener">
-      <div class="job-logo">${initials}</div>
-      <div class="job-body">
-        <div class="job-title">${j.title}</div>
-        <div class="job-company">${j.source_name||''} · ${j.location||'LATAM'}</div>
-        <div class="job-tags">
-          ${j.category ? `<span class="tag ${j.category}">${j.category}</span>` : ''}
-          ${j.work_type === 'remote' ? '<span class="tag remote">Remote</span>' : ''}
-          ${j.seniority ? `<span class="tag">${j.seniority}</span>` : ''}
-        </div>
-      </div>
-      <div class="job-right">
-        <a class="apply-btn" href="${j.apply_url||'#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
-      </div>
-    </a>`;
-  }).join("");
-}
-
-function showError() {
-  document.getElementById("jobs-wrap").innerHTML = `
-    <div class="error-state">
-      <h3>Could not load jobs</h3>
-      <p>Browse our partner agencies directly:</p>
-      <div class="agency-links">
-        ${AGENCIES.map(a=>`<a class="agency-link" href="${a.url}" target="_blank">${a.name}</a>`).join("")}
-      </div>
-    </div>`;
-}
-
-function toggleCat(el) {
-  const cat = el.dataset.cat;
-  if (activeCats.includes(cat)) {
-    activeCats = activeCats.filter(c => c !== cat);
-    el.classList.remove("active");
-  } else {
-    activeCats.push(cat);
-    el.classList.add("active");
-  }
-  document.getElementById("clear-btn").classList.toggle("visible", activeCats.length > 0);
-  applyFilters();
-}
-
-function clearFilters() {
-  activeCats = [];
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-  document.getElementById("clear-btn").classList.remove("visible");
-  document.getElementById("search").value = "";
-  applyFilters();
 }
 
 loadJobs();
