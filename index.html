@@ -41,7 +41,7 @@
   .stats-bar b { color: #1a1a1a; font-weight: 600; }
   .sdot { color: #D1D5DB; }
 
-  .layout { display: grid; grid-template-columns: 200px 1fr; gap: 20px; max-width: 1100px; margin: 20px auto; padding: 0 28px 40px; }
+  .layout { display: grid; grid-template-columns: 200px 1fr; gap: 20px; max-width: 1200px; margin: 20px auto; padding: 0 28px 40px; }
 
   /* SIDEBAR */
   .sidebar { display: flex; flex-direction: column; gap: 8px; }
@@ -58,22 +58,22 @@
   .flabel { font-size: 12px; color: #374151; flex: 1; }
   .fcount { font-size: 10px; color: #9CA3AF; }
 
-  /* MAIN */
-  .list-header { display: flex; align-items: center; margin-bottom: 12px; }
-  .lh-left h2 { font-size: 13px; font-weight: 600; }
-  .lh-left span { font-size: 11px; color: #9CA3AF; margin-top: 1px; display: block; }
+  /* LIST HEADER */
+  .list-header { display: flex; align-items: center; margin-bottom: 14px; }
+  .lh-left h2 { font-size: 14px; font-weight: 600; }
+  .lh-left span { font-size: 11px; color: #9CA3AF; margin-top: 2px; display: block; }
 
   /* SKELETON */
   .skeleton-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 12px; padding: 16px; animation: shimmer 1.5s infinite; height: 180px; }
+  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 12px; padding: 16px; animation: shimmer 1.5s infinite; height: 200px; }
   @keyframes shimmer { 0%,100%{opacity:1}50%{opacity:0.5} }
   .sk-line { height: 12px; background: #ECEAE5; border-radius: 4px; margin-bottom: 10px; }
   .sk-line.w60{width:60%}.sk-line.w40{width:40%}.sk-line.w25{width:25%}
 
-  /* GRID 3 COLUMNAS */
+  /* GRID */
   .jobs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 
-  /* CARD */
+  /* CARD — flex column, footer siempre abajo */
   .jcard {
     background: #fff;
     border: 1px solid #ECEAE5;
@@ -81,15 +81,29 @@
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     text-decoration: none;
     color: inherit;
-    transition: all 0.12s;
+    transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s;
+    min-height: 200px;
   }
-  .jcard:hover { border-color: #3DBFBF; box-shadow: 0 4px 16px rgba(61,191,191,0.1); transform: translateY(-1px); }
+  .jcard:hover {
+    border-color: #3DBFBF;
+    box-shadow: 0 4px 16px rgba(61,191,191,0.1);
+    transform: translateY(-1px);
+  }
 
-  .jcard-top { display: flex; align-items: center; justify-content: space-between; }
-  .jlogo { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 11px; flex-shrink: 0; }
+  /* Top row: logo + agency */
+  .jcard-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .jlogo {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 11px; flex-shrink: 0;
+  }
   .lt{background:#F0FDF9;color:#0D9488}
   .lo{background:#FEF9EC;color:#D97706}
   .ln{background:#F1F2F7;color:#1B2340}
@@ -97,54 +111,60 @@
   .lp{background:#F5F3FF;color:#7C3AED}
   .jagency { font-size: 10px; color: #9CA3AF; font-weight: 500; }
 
-  .jtitle { font-size: 13px; font-weight: 600; color: #1a1a1a; line-height: 1.3; flex: 1; }
+  /* Title */
+  .jtitle {
+    font-size: 14px; font-weight: 600; color: #1a1a1a;
+    line-height: 1.3; margin-bottom: 10px;
+  }
 
-  .jtags { display: flex; flex-wrap: wrap; gap: 4px; }
+  /* Tags */
+  .jtags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; }
   .tag { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; }
   .tt{background:#F0FDF9;color:#0D9488;border:1px solid #AEECD8}
   .to{background:#FEF9EC;color:#D97706;border:1px solid #FDE68A}
   .tg{background:#F7F6F3;color:#6B7280;border:1px solid #ECEAE5}
   .tn{background:#F1F2F7;color:#1B2340;border:1px solid #D1D5E0}
-  .tp{background:#F5F3FF;color:#7C3AED;border:1px solid #DDD6FE}
 
-  /* Footer dentro de la card */
+  /* Footer — pegado al fondo de la card con margin-top:auto */
   .jcard-footer {
+    margin-top: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #F7F6F3;
-    border-radius: 8px;
-    padding: 8px 10px;
-    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #F4F3F0;
   }
-  .jlocation { font-size: 10px; color: #6B7280; display: flex; align-items: center; gap: 3px; }
+  .jlocation {
+    font-size: 10px; color: #6B7280;
+    display: flex; align-items: center; gap: 3px;
+  }
   .abtn {
-    font-size: 11px; font-weight: 600; color: #fff;
-    background: #1a1a1a; border: none; border-radius: 6px;
-    padding: 5px 11px; cursor: pointer; text-decoration: none;
-    transition: background 0.12s; white-space: nowrap;
+    font-size: 11px; font-weight: 600;
+    color: #fff; background: #1a1a1a;
+    border: none; border-radius: 6px;
+    padding: 5px 12px; cursor: pointer;
+    text-decoration: none; white-space: nowrap;
+    transition: background 0.12s;
   }
   .abtn:hover { background: #3DBFBF; }
 
+  /* Empty / Error */
   .empty-state { text-align: center; padding: 60px 20px; grid-column: span 3; }
   .empty-state h3 { font-size: 15px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
   .empty-state p { color: #9CA3AF; font-size: 12px; }
-
   .error-state { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 10px; padding: 20px; text-align: center; grid-column: span 3; }
   .error-state h3 { color: #DC2626; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
   .error-state p { color: #6B7280; font-size: 12px; margin-bottom: 12px; }
   .agency-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
   .agency-link { font-size: 11px; font-weight: 600; color: #0D9488; border: 1px solid #AEECD8; border-radius: 20px; padding: 3px 10px; text-decoration: none; background: #F0FDF9; }
 
-  @media (max-width: 900px) {
-    .jobs-grid { grid-template-columns: repeat(2, 1fr); }
-    .skeleton-grid { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 960px) {
+    .jobs-grid, .skeleton-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .layout { grid-template-columns: 1fr; }
     .sidebar { display: none; }
-    .jobs-grid { grid-template-columns: 1fr; }
-    .skeleton-grid { grid-template-columns: 1fr; }
+    .jobs-grid, .skeleton-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 26px; }
   }
 </style>
@@ -262,14 +282,14 @@ const AGENCIES = [
   {name:"TLNT",url:"https://recruitcrm.io/jobs/TLNT_Group_jobs"},
 ];
 
-const LOGO_COLORS = ['lt','lo','ln','lc','lp'];
+const COLORS = ['lt','lo','ln','lc','lp'];
 let allJobs = [];
 let filters = { cat: [], wt: [], sn: [] };
 
 function logoClass(name) {
   let h = 0;
   for (let c of (name||'')) h = (h * 31 + c.charCodeAt(0)) & 0xffff;
-  return LOGO_COLORS[h % LOGO_COLORS.length];
+  return COLORS[h % COLORS.length];
 }
 
 function initials(name) {
@@ -318,50 +338,52 @@ function updateCounts() {
 }
 
 function renderJobs(jobs) {
-  const wrap  = document.getElementById('jobs-wrap');
+  const wrap = document.getElementById('jobs-wrap');
   document.getElementById('total-count').textContent = allJobs.length;
   document.getElementById('pill-count').textContent  = allJobs.length;
   document.getElementById('results-title').textContent = `${jobs.length} jobs found`;
   document.getElementById('results-sub').textContent   = 'Sorted by latest';
 
   if (jobs.length === 0) {
-    wrap.innerHTML = `<div class="jobs-grid"><div class="empty-state"><h3>No roles match your search</h3><p>Try adjusting your filters or search terms.</p></div></div>`;
+    wrap.innerHTML = `<div class="jobs-grid"><div class="empty-state"><h3>No roles match your search</h3><p>Try adjusting your filters.</p></div></div>`;
     return;
   }
 
-  wrap.innerHTML = '<div class="jobs-grid">' + jobs.map(j => {
-    const cls   = logoClass(j.source_name);
-    const ini   = initials(j.source_name);
-    const wtTag = j.work_type ? `<span class="tag tt">${j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1)}</span>` : '';
-    const catTag= j.category  ? `<span class="tag tn">${j.category.charAt(0).toUpperCase()+j.category.slice(1)}</span>`  : '';
-    const snTag = j.seniority ? `<span class="tag tg">${j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1)}</span>` : '';
-    const loc   = j.location || 'LATAM';
-    return `
-      <a class="jcard" href="${j.apply_url||'#'}" target="_blank" rel="noopener">
-        <div class="jcard-top">
-          <div class="jlogo ${cls}">${ini}</div>
-          <span class="jagency">${j.source_name||''}</span>
-        </div>
-        <div class="jtitle">${j.title||''}</div>
-        <div class="jtags">${catTag}${wtTag}${snTag}</div>
-        <div class="jcard-footer">
-          <span class="jlocation">
-            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2a5 5 0 015 5c0 3.5-5 9-5 9S3 10.5 3 7a5 5 0 015-5z"/></svg>
-            ${loc}
-          </span>
-          <a class="abtn" href="${j.apply_url||'#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
-        </div>
-      </a>`;
-  }).join('') + '</div>';
+  const cards = jobs.map(j => {
+    const cls    = logoClass(j.source_name);
+    const ini    = initials(j.source_name);
+    const catTag = j.category  ? `<span class="tag tn">${j.category.charAt(0).toUpperCase()+j.category.slice(1)}</span>` : '';
+    const wtTag  = j.work_type ? `<span class="tag tt">${j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1)}</span>` : '';
+    const snTag  = j.seniority ? `<span class="tag tg">${j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1)}</span>` : '';
+    const loc    = j.location  || 'LATAM';
+    const url    = j.apply_url || '#';
+
+    return `<a class="jcard" href="${url}" target="_blank" rel="noopener">
+  <div class="jcard-top">
+    <div class="jlogo ${cls}">${ini}</div>
+    <span class="jagency">${j.source_name||''}</span>
+  </div>
+  <div class="jtitle">${j.title||''}</div>
+  <div class="jtags">${catTag}${wtTag}${snTag}</div>
+  <div class="jcard-footer">
+    <span class="jlocation">
+      <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2a5 5 0 015 5c0 3.5-5 9-5 9S3 10.5 3 7a5 5 0 015-5z"/></svg>
+      ${loc}
+    </span>
+    <a class="abtn" href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
+  </div>
+</a>`;
+  }).join('');
+
+  wrap.innerHTML = `<div class="jobs-grid">${cards}</div>`;
 }
 
 function showError() {
-  document.getElementById('jobs-wrap').innerHTML = `
-    <div class="jobs-grid"><div class="error-state">
-      <h3>Could not load jobs</h3>
-      <p>Browse our partner agencies directly:</p>
-      <div class="agency-links">${AGENCIES.map(a=>`<a class="agency-link" href="${a.url}" target="_blank">${a.name}</a>`).join('')}</div>
-    </div></div>`;
+  document.getElementById('jobs-wrap').innerHTML = `<div class="jobs-grid"><div class="error-state">
+    <h3>Could not load jobs</h3>
+    <p>Browse our partner agencies directly:</p>
+    <div class="agency-links">${AGENCIES.map(a=>`<a class="agency-link" href="${a.url}" target="_blank">${a.name}</a>`).join('')}</div>
+  </div></div>`;
 }
 
 async function loadJobs() {
