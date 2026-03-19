@@ -41,87 +41,66 @@
   .stats-bar b { color: #1a1a1a; font-weight: 600; }
   .sdot { color: #D1D5DB; }
 
-  .layout { display: grid; grid-template-columns: 200px 1fr; gap: 20px; max-width: 1100px; margin: 20px auto; padding: 0 28px 40px; }
+  .layout { display: grid; grid-template-columns: 208px 1fr; gap: 18px; max-width: 1040px; margin: 18px auto; padding: 0 28px 40px; }
 
-  /* SIDEBAR */
-  .sidebar { display: flex; flex-direction: column; gap: 8px; position: sticky; top: 20px; align-self: start; }
+  .sidebar { display: flex; flex-direction: column; gap: 8px; position: sticky; top: 16px; align-self: start; }
   .fbox { background: #fff; border-radius: 8px; border: 1px solid #ECEAE5; padding: 12px 14px; }
   .ftitle { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #9CA3AF; margin-bottom: 8px; }
-  .fopt { display: flex; align-items: center; justify-content: space-between; padding: 5px 6px; border-radius: 5px; cursor: pointer; user-select: none; }
+  .fopt { display: flex; align-items: center; justify-content: space-between; padding: 4px 5px; border-radius: 5px; cursor: pointer; user-select: none; }
   .fopt:hover { background: #F7F6F3; }
   .fopt.on { background: #F0FDF9; }
-  .fopt.on .flabel { color: #0D9488; font-weight: 600; }
-  .fcheck { width: 14px; height: 14px; border: 1.5px solid #D1D5DB; border-radius: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-right: 7px; transition: all 0.12s; }
-  .fopt.on .fcheck { background: #3DBFBF; border-color: #3DBFBF; }
-  .fcheck svg { display: none; }
-  .fopt.on .fcheck svg { display: block; }
-  .flabel { font-size: 12px; color: #374151; flex: 1; }
+  .fopt label { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #374151; cursor: pointer; }
+  .fopt.on label { color: #0D9488; font-weight: 600; }
+  .fopt input[type=checkbox] { width: 13px; height: 13px; accent-color: #3DBFBF; cursor: pointer; }
   .fcount { font-size: 10px; color: #9CA3AF; }
 
-  /* LIST */
-  .list-header { display: flex; align-items: center; margin-bottom: 12px; }
-  .lh-left h2 { font-size: 14px; font-weight: 600; }
-  .lh-left span { font-size: 11px; color: #9CA3AF; margin-top: 2px; display: block; }
+  .list-header { display: flex; align-items: center; margin-bottom: 10px; }
+  .lh-left h2 { font-size: 13px; font-weight: 600; }
+  .lh-left span { font-size: 11px; color: #9CA3AF; margin-top: 1px; display: block; }
 
-  .job-list { display: flex; flex-direction: column; gap: 8px; }
-
-  /* SKELETON */
-  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 12px; padding: 18px; animation: shimmer 1.5s infinite; }
+  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 16px; margin-bottom: 6px; animation: shimmer 1.5s infinite; }
   @keyframes shimmer { 0%,100%{opacity:1}50%{opacity:0.5} }
-  .sk-line { height: 12px; background: #ECEAE5; border-radius: 4px; margin-bottom: 10px; }
+  .sk-line { height: 12px; background: #ECEAE5; border-radius: 4px; margin-bottom: 8px; }
   .sk-line.w60{width:60%}.sk-line.w40{width:40%}.sk-line.w25{width:25%}
 
-  /* JOB CARD — lista horizontal como en la imagen */
+  .job-list { display: flex; flex-direction: column; gap: 6px; }
+
+  /* UNA SOLA CARD — logo | info | (date + apply) */
   .jcard {
     background: #fff;
     border: 1px solid #ECEAE5;
-    border-radius: 12px;
-    padding: 16px 20px;
+    border-radius: 10px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     text-decoration: none;
     color: inherit;
     transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s;
   }
-  .jcard:hover {
-    border-color: #3DBFBF;
-    box-shadow: 0 2px 16px rgba(61,191,191,0.1);
-    transform: translateY(-1px);
-  }
+  .jcard:hover { border-color: #3DBFBF; box-shadow: 0 2px 12px rgba(61,191,191,0.08); transform: translateY(-1px); }
 
-  .jlogo {
-    width: 44px; height: 44px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 13px; flex-shrink: 0;
-  }
+  .jlogo { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0; }
   .lt{background:#F0FDF9;color:#0D9488}
   .lo{background:#FEF9EC;color:#D97706}
   .ln{background:#F1F2F7;color:#1B2340}
   .lc{background:#FEF2F2;color:#DC2626}
   .lp{background:#F5F3FF;color:#7C3AED}
 
-  .jbody { flex: 1; min-width: 0; }
-  .jbody-top { display: flex; align-items: baseline; gap: 8px; margin-bottom: 2px; }
-  .jtitle { font-size: 14px; font-weight: 600; color: #1a1a1a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .jmeta { font-size: 11px; color: #9CA3AF; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .jtags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .tag { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
-  .tt { background: #E0F7F7; color: #0D9488; }
-  .to { background: #FEF9EC; color: #D97706; }
-  .tg { background: #F4F3F0; color: #6B7280; border: 1px solid #ECEAE5; }
-  .tn { background: #EEF0F7; color: #1B2340; }
+  .jinfo { flex: 1; min-width: 0; }
+  .jtitle { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
+  .jmeta { font-size: 11px; color: #9CA3AF; margin-bottom: 6px; }
+  .jtags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tag { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; }
+  .tt{background:#F0FDF9;color:#0D9488;border:1px solid #AEECD8}
+  .to{background:#FEF9EC;color:#D97706;border:1px solid #FDE68A}
+  .tg{background:#F7F6F3;color:#6B7280;border:1px solid #ECEAE5}
+  .tn{background:#F1F2F7;color:#1B2340;border:1px solid #D1D5E0}
 
-  .jright { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
-  .jtime { font-size: 10px; color: #9CA3AF; }
-  .abtn {
-    font-size: 12px; font-weight: 600;
-    color: #1a1a1a; background: #fff;
-    border: 1.5px solid #ECEAE5;
-    border-radius: 8px; padding: 6px 16px;
-    cursor: pointer; text-decoration: none;
-    transition: all 0.12s; white-space: nowrap;
-  }
+  /* Columna derecha: tiempo + apply — parte de la misma card */
+  .jright { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+  .jdate { font-size: 10px; color: #9CA3AF; }
+  .abtn { font-size: 11px; font-weight: 600; color: #1a1a1a; border: 1px solid #ECEAE5; border-radius: 6px; padding: 5px 11px; background: #fff; cursor: pointer; font-family: inherit; transition: all 0.12s; text-decoration: none; white-space: nowrap; }
   .abtn:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
 
   .empty-state { text-align: center; padding: 60px 20px; }
@@ -137,7 +116,6 @@
     .layout { grid-template-columns: 1fr; }
     .sidebar { display: none; }
     .hero h1 { font-size: 26px; }
-    .jright { display: none; }
   }
 </style>
 </head>
@@ -194,28 +172,28 @@
   <aside class="sidebar">
     <div class="fbox">
       <div class="ftitle">Category</div>
-      <div class="fopt" onclick="toggleFilter('cat','tech',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Tech & Engineering</span><span class="fcount" id="cnt-tech">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','sales',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Sales</span><span class="fcount" id="cnt-sales">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','marketing',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Marketing</span><span class="fcount" id="cnt-marketing">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','design',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Design</span><span class="fcount" id="cnt-design">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','finance',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Finance</span><span class="fcount" id="cnt-finance">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','hr',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">HR & Talent</span><span class="fcount" id="cnt-hr">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','data',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Data</span><span class="fcount" id="cnt-data">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','ops',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Operations</span><span class="fcount" id="cnt-ops">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','tech',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Tech & Engineering</label><span class="fcount" id="cnt-tech">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','sales',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Sales</label><span class="fcount" id="cnt-sales">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','marketing',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Marketing</label><span class="fcount" id="cnt-marketing">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','design',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Design</label><span class="fcount" id="cnt-design">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','finance',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Finance</label><span class="fcount" id="cnt-finance">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','hr',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> HR & Talent</label><span class="fcount" id="cnt-hr">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','data',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Data</label><span class="fcount" id="cnt-data">—</span></div>
+      <div class="fopt" onclick="toggleFilter('cat','ops',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Operations</label><span class="fcount" id="cnt-ops">—</span></div>
     </div>
     <div class="fbox">
       <div class="ftitle">Work Type</div>
-      <div class="fopt" onclick="toggleFilter('wt','remote',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Remote</span><span class="fcount" id="cnt-remote">—</span></div>
-      <div class="fopt" onclick="toggleFilter('wt','hybrid',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Hybrid</span><span class="fcount" id="cnt-hybrid">—</span></div>
-      <div class="fopt" onclick="toggleFilter('wt','onsite',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">On-site</span><span class="fcount" id="cnt-onsite">—</span></div>
+      <div class="fopt" onclick="toggleFilter('wt','remote',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Remote</label><span class="fcount" id="cnt-remote">—</span></div>
+      <div class="fopt" onclick="toggleFilter('wt','hybrid',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Hybrid</label><span class="fcount" id="cnt-hybrid">—</span></div>
+      <div class="fopt" onclick="toggleFilter('wt','onsite',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> On-site</label><span class="fcount" id="cnt-onsite">—</span></div>
     </div>
     <div class="fbox">
       <div class="ftitle">Seniority</div>
-      <div class="fopt" onclick="toggleFilter('sn','junior',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Junior</span><span class="fcount" id="cnt-junior">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','mid',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Mid-level</span><span class="fcount" id="cnt-mid">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','senior',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Senior</span><span class="fcount" id="cnt-senior">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','lead',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Lead</span><span class="fcount" id="cnt-lead">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','director',this)"><div class="fcheck"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Director</span><span class="fcount" id="cnt-director">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','junior',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Junior</label><span class="fcount" id="cnt-junior">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','mid',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Mid-level</label><span class="fcount" id="cnt-mid">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','senior',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Senior</label><span class="fcount" id="cnt-senior">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','lead',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Lead</label><span class="fcount" id="cnt-lead">—</span></div>
+      <div class="fopt" onclick="toggleFilter('sn','director',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Director</label><span class="fcount" id="cnt-director">—</span></div>
     </div>
   </aside>
 
@@ -227,13 +205,11 @@
       </div>
     </div>
     <div id="jobs-wrap">
-      <div class="job-list">
-        <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-        <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-        <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-        <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-        <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-      </div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
     </div>
   </div>
 </div>
@@ -270,10 +246,10 @@ function initials(name) {
 function timeAgo(dateStr) {
   if (!dateStr) return 'Recently posted';
   const diff = Math.floor((Date.now() - new Date(dateStr)) / 1000);
-  if (diff < 3600) return `${Math.floor(diff/60)}m ago`;
-  if (diff < 86400) return `${Math.floor(diff/3600)}h ago`;
-  if (diff < 604800) return `${Math.floor(diff/86400)}d ago`;
-  return `${Math.floor(diff/604800)}w ago`;
+  if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+  if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
+  if (diff < 604800) return Math.floor(diff/86400) + 'd ago';
+  return Math.floor(diff/604800) + 'w ago';
 }
 
 function setSearch(val) {
@@ -282,9 +258,17 @@ function setSearch(val) {
 }
 
 function toggleFilter(group, val, el) {
+  const cb = el.querySelector('input[type=checkbox]');
   const idx = filters[group].indexOf(val);
-  if (idx > -1) { filters[group].splice(idx,1); el.classList.remove('on'); }
-  else { filters[group].push(val); el.classList.add('on'); }
+  if (idx > -1) {
+    filters[group].splice(idx, 1);
+    el.classList.remove('on');
+    cb.checked = false;
+  } else {
+    filters[group].push(val);
+    el.classList.add('on');
+    cb.checked = true;
+  }
   applyFilters();
 }
 
@@ -321,56 +305,49 @@ function renderJobs(jobs) {
   const wrap = document.getElementById('jobs-wrap');
   document.getElementById('total-count').textContent = allJobs.length;
   document.getElementById('pill-count').textContent  = allJobs.length;
-  document.getElementById('results-title').textContent = `${jobs.length} jobs found`;
+  document.getElementById('results-title').textContent = jobs.length + ' jobs found';
   document.getElementById('results-sub').textContent   = 'Sorted by latest';
 
   if (jobs.length === 0) {
-    wrap.innerHTML = `<div class="empty-state"><h3>No roles match your search</h3><p>Try adjusting your filters.</p></div>`;
+    wrap.innerHTML = '<div class="empty-state"><h3>No roles match your search</h3><p>Try adjusting your filters.</p></div>';
     return;
   }
 
-  const cards = jobs.map(j => {
+  wrap.innerHTML = '<div class="job-list">' + jobs.map(j => {
     const cls    = logoClass(j.source_name);
     const ini    = initials(j.source_name);
     const ago    = timeAgo(j.scraped_at);
-    const catTag = j.category  ? `<span class="tag tn">${j.category.charAt(0).toUpperCase()+j.category.slice(1)}</span>` : '';
-    const wtTag  = j.work_type ? `<span class="tag tt">${j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1)}</span>` : '';
-    const snTag  = j.seniority ? `<span class="tag tg">${j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1)}</span>` : '';
+    const catTag = j.category  ? '<span class="tag tn">'+j.category.charAt(0).toUpperCase()+j.category.slice(1)+'</span>' : '';
+    const wtTag  = j.work_type ? '<span class="tag tt">'+j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1)+'</span>' : '';
+    const snTag  = j.seniority ? '<span class="tag tg">'+j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1)+'</span>' : '';
     const loc    = j.location  || 'LATAM';
     const url    = j.apply_url || '#';
-
-    return `<a class="jcard" href="${url}" target="_blank" rel="noopener">
-  <div class="jlogo ${cls}">${ini}</div>
-  <div class="jbody">
-    <div class="jbody-top">
-      <div class="jtitle">${j.title||''}</div>
-    </div>
-    <div class="jmeta">${j.source_name||''} · ${loc}</div>
-    <div class="jtags">${catTag}${wtTag}${snTag}</div>
-  </div>
-  <div class="jright">
-    <span class="jtime">${ago}</span>
-    <a class="abtn" href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
-  </div>
-</a>`;
-  }).join('');
-
-  wrap.innerHTML = `<div class="job-list">${cards}</div>`;
+    return '<a class="jcard" href="'+url+'" target="_blank" rel="noopener">'
+      + '<div class="jlogo '+cls+'">'+ini+'</div>'
+      + '<div class="jinfo">'
+        + '<div class="jtitle">'+( j.title||'' )+'</div>'
+        + '<div class="jmeta">'+(j.source_name||'')+' · '+loc+'</div>'
+        + '<div class="jtags">'+catTag+wtTag+snTag+'</div>'
+      + '</div>'
+      + '<div class="jright">'
+        + '<span class="jdate">'+ago+'</span>'
+        + '<a class="abtn" href="'+url+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>'
+      + '</div>'
+      + '</a>';
+  }).join('') + '</div>';
 }
 
 function showError() {
-  document.getElementById('jobs-wrap').innerHTML = `<div class="error-state">
-    <h3>Could not load jobs</h3>
-    <p>Browse our partner agencies directly:</p>
-    <div class="agency-links">${AGENCIES.map(a=>`<a class="agency-link" href="${a.url}" target="_blank">${a.name}</a>`).join('')}</div>
-  </div>`;
+  document.getElementById('jobs-wrap').innerHTML =
+    '<div class="error-state"><h3>Could not load jobs</h3><p>Browse our partner agencies directly:</p>'
+    + '<div class="agency-links">'+AGENCIES.map(a=>'<a class="agency-link" href="'+a.url+'" target="_blank">'+a.name+'</a>').join('')+'</div></div>';
 }
 
 async function loadJobs() {
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/jobs?is_active=eq.true&order=scraped_at.desc`,
-      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } }
+      SUPABASE_URL + '/rest/v1/jobs?is_active=eq.true&order=scraped_at.desc',
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY } }
     );
     if (!res.ok) throw new Error('fetch failed');
     allJobs = await res.json();
