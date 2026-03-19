@@ -3,372 +3,482 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Surfers · Find Your Dream Job in Latin America</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Job Surfers · Find Your Dream Job</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: #F7F6F3; color: #1a1a1a; font-size: 13px; -webkit-font-smoothing: antialiased; }
-  nav { background: #fff; border-bottom: 1px solid #ECEAE5; padding: 0 28px; height: 52px; display: flex; align-items: center; }
-  .nav-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
-  .nav-logo-img { width: 30px; height: 30px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
-  .nav-logo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .nav-logo-text { font-size: 15px; font-weight: 600; color: #1a1a1a; letter-spacing: -0.3px; }
-  .hero { background: #fff; border-bottom: 1px solid #ECEAE5; padding: 56px 28px 48px; text-align: center; }
-  .hero-pill { display: inline-flex; align-items: center; gap: 6px; background: #F0FDF9; border: 1px solid #AEECD8; border-radius: 20px; padding: 3px 11px; font-size: 11px; font-weight: 600; color: #0D9488; margin-bottom: 20px; }
-  .pill-dot { width: 5px; height: 5px; border-radius: 50%; background: #3DBFBF; animation: blink 2s infinite; }
-  @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.3} }
-  .hero h1 { color: #1a1a1a; font-size: 36px; font-weight: 700; letter-spacing: -1.2px; line-height: 1.12; margin-bottom: 12px; }
-  .hero h1 em { font-style: normal; color: #3DBFBF; }
-  .hero-sub { color: #6B7280; font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
-  .tracker-hint { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #0D9488; font-weight: 500; margin-bottom: 24px; }
-  .hero-search { background: #fff; border: 1.5px solid #ECEAE5; border-radius: 10px; padding: 4px; display: flex; max-width: 560px; margin: 0 auto; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.04); }
-  .hero-search:focus-within { border-color: #3DBFBF; box-shadow: 0 0 0 3px rgba(61,191,191,0.1); }
-  .sf { display: flex; align-items: center; gap: 7px; padding: 7px 12px; flex: 1; }
-  .sf svg { color: #9CA3AF; flex-shrink: 0; }
-  .sf input { border: none; outline: none; font-size: 13px; flex: 1; color: #1a1a1a; font-family: inherit; background: transparent; }
-  .sf input::placeholder { color: #9CA3AF; }
-  .ssep { width: 1px; background: #ECEAE5; margin: 6px 0; }
-  .sbtn { background: #1a1a1a; color: #fff; border: none; border-radius: 7px; padding: 8px 18px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap; }
-  .sbtn:hover { opacity: 0.85; }
-  .popular { margin-top: 14px; display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; align-items: center; }
-  .pop-label { color: #9CA3AF; font-size: 11px; }
-  .popular a { background: #F7F6F3; color: #374151; border-radius: 5px; padding: 2px 8px; font-size: 11px; font-weight: 500; text-decoration: none; border: 1px solid #ECEAE5; cursor: pointer; }
-  .popular a:hover { border-color: #3DBFBF; color: #0D9488; }
-  .stats-bar { background: #F7F6F3; border-bottom: 1px solid #ECEAE5; padding: 8px 28px; display: flex; gap: 10px; justify-content: center; align-items: center; font-size: 12px; color: #6B7280; }
-  .stats-bar b { color: #1a1a1a; font-weight: 600; }
-  .sdot { color: #D1D5DB; }
-  .layout { display: grid; grid-template-columns: 208px 1fr; gap: 18px; max-width: 1040px; margin: 18px auto; padding: 0 28px 40px; }
-  .sidebar { display: flex; flex-direction: column; gap: 8px; position: sticky; top: 16px; align-self: start; }
-  .fbox { background: #fff; border-radius: 8px; border: 1px solid #ECEAE5; padding: 12px 14px; }
-  .ftitle { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #9CA3AF; margin-bottom: 8px; }
-  .fopt { display: flex; align-items: center; justify-content: space-between; padding: 4px 5px; border-radius: 5px; cursor: pointer; user-select: none; }
-  .fopt:hover { background: #F7F6F3; }
-  .fopt.on { background: #F0FDF9; }
-  .fopt label { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #374151; cursor: pointer; }
-  .fopt.on label { color: #0D9488; font-weight: 600; }
-  .fopt input[type=checkbox] { width: 13px; height: 13px; accent-color: #3DBFBF; cursor: pointer; }
-  .fcount { font-size: 10px; color: #9CA3AF; }
-  .list-header { display: flex; align-items: center; margin-bottom: 10px; }
-  .lh-left h2 { font-size: 13px; font-weight: 600; }
-  .lh-left span { font-size: 11px; color: #9CA3AF; margin-top: 1px; display: block; }
-  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 16px; margin-bottom: 6px; animation: shimmer 1.5s infinite; }
-  @keyframes shimmer { 0%,100%{opacity:1}50%{opacity:0.5} }
-  .sk-line { height: 12px; background: #ECEAE5; border-radius: 4px; margin-bottom: 8px; }
-  .sk-line.w60{width:60%}.sk-line.w40{width:40%}.sk-line.w25{width:25%}
-  .job-list { display: flex; flex-direction: column; gap: 6px; }
-  .jcard { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s; }
-  .jcard:hover { border-color: #3DBFBF; box-shadow: 0 2px 12px rgba(61,191,191,0.08); transform: translateY(-1px); }
-  .jlogo { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0; }
-  .lt{background:#F0FDF9;color:#0D9488}.lo{background:#FEF9EC;color:#D97706}.ln{background:#F1F2F7;color:#1B2340}.lc{background:#FEF2F2;color:#DC2626}.lp{background:#F5F3FF;color:#7C3AED}
-  .jinfo { flex: 1; min-width: 0; }
-  .jtitle { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
-  .jmeta { font-size: 11px; color: #9CA3AF; margin-bottom: 6px; }
-  .jtags { display: flex; gap: 4px; flex-wrap: wrap; }
-  .tag { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; }
-  .tt{background:#F0FDF9;color:#0D9488;border:1px solid #AEECD8}
-  .to{background:#FEF9EC;color:#D97706;border:1px solid #FDE68A}
-  .tg{background:#F7F6F3;color:#6B7280;border:1px solid #ECEAE5}
-  .tn{background:#F1F2F7;color:#1B2340;border:1px solid #D1D5E0}
-  .jright { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
-  .jdate { font-size: 10px; color: #9CA3AF; }
-  .abtn { font-size: 11px; font-weight: 600; color: #1a1a1a; border: 1px solid #ECEAE5; border-radius: 6px; padding: 5px 11px; background: #fff; cursor: pointer; font-family: inherit; transition: all 0.12s; text-decoration: none; white-space: nowrap; }
-  .abtn:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
-  .empty-state { text-align: center; padding: 60px 20px; }
-  .empty-state h3 { font-size: 15px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
-  .empty-state p { color: #9CA3AF; font-size: 12px; }
-  .error-state { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 10px; padding: 20px; text-align: center; }
-  .error-state h3 { color: #DC2626; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-  .error-state p { color: #6B7280; font-size: 12px; margin-bottom: 12px; }
-  .agency-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-  .agency-link { font-size: 11px; font-weight: 600; color: #0D9488; border: 1px solid #AEECD8; border-radius: 20px; padding: 3px 10px; text-decoration: none; background: #F0FDF9; }
-  @media (max-width: 640px) { .layout { grid-template-columns: 1fr; } .sidebar { display: none; } .hero h1 { font-size: 26px; } }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #F4F6FA; color: #1a1a2e; font-size: 13px; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+
+/* ── HEADER ── */
+.header {
+  background: #1B2340;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.header-logo-img { width: 30px; height: 30px; border-radius: 8px; overflow: hidden; }
+.header-logo-img img { width: 100%; height: 100%; object-fit: cover; }
+.header-logo-text { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+.header-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.header-search {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 0 14px;
+  width: 280px;
+  height: 36px;
+  transition: all 0.15s;
+}
+.header-search:focus-within { background: rgba(255,255,255,0.12); border-color: #3DBFBF; }
+.header-search svg { color: rgba(255,255,255,0.4); flex-shrink: 0; }
+.header-search input { background: transparent; border: none; outline: none; font-family: inherit; font-size: 13px; color: #fff; width: 100%; }
+.header-search input::placeholder { color: rgba(255,255,255,0.35); }
+.live-badge { display: flex; align-items: center; gap: 6px; background: rgba(61,191,191,0.15); border: 1px solid rgba(61,191,191,0.3); border-radius: 20px; padding: 4px 12px; font-size: 11px; font-weight: 600; color: #3DBFBF; white-space: nowrap; }
+.live-dot { width: 6px; height: 6px; border-radius: 50%; background: #3DBFBF; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+/* ── BODY ── */
+.body-wrap { display: flex; min-height: calc(100vh - 56px); }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid #E5E9F2;
+  padding: 20px 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: #E5E9F2; border-radius: 4px; }
+
+.sb-section { padding: 0 16px 20px; border-bottom: 1px solid #F0F2F8; margin-bottom: 4px; }
+.sb-section:last-child { border-bottom: none; }
+.sb-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; margin-bottom: 10px; padding-top: 16px; }
+.sb-row { display: flex; align-items: center; justify-content: space-between; padding: 5px 8px; border-radius: 6px; cursor: pointer; user-select: none; transition: background 0.1s; }
+.sb-row:hover { background: #F4F6FA; }
+.sb-row.active { background: #EEF9F9; }
+.sb-row.active .sb-label { color: #0D9488; font-weight: 600; }
+.sb-check { width: 14px; height: 14px; border: 1.5px solid #D1D5DB; border-radius: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-right: 8px; transition: all 0.12s; }
+.sb-row.active .sb-check { background: #3DBFBF; border-color: #3DBFBF; }
+.sb-tick { display: none; }
+.sb-row.active .sb-tick { display: block; }
+.sb-label { font-size: 12px; color: #374151; flex: 1; }
+.sb-count { font-size: 11px; font-weight: 500; color: #9CA3AF; background: #F4F6FA; padding: 1px 7px; border-radius: 12px; }
+.sb-row.active .sb-count { background: #D1F5F5; color: #0D9488; }
+
+/* ── MAIN ── */
+.main { flex: 1; min-width: 0; padding: 24px 28px; }
+
+/* ── PAGE HEADER ── */
+.page-header { margin-bottom: 24px; }
+.page-title { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+.page-title span { color: #3DBFBF; }
+.page-desc { font-size: 13px; color: #6B7280; line-height: 1.6; }
+
+/* ── METRICS ── */
+.metrics { display: flex; gap: 12px; margin-bottom: 24px; }
+.metric-card { background: #fff; border: 1px solid #E5E9F2; border-radius: 10px; padding: 14px 20px; flex: 1; max-width: 160px; }
+.metric-num { font-size: 28px; font-weight: 700; letter-spacing: -1px; color: #1B2340; }
+.metric-num.teal { color: #3DBFBF; }
+.metric-label { font-size: 11px; color: #9CA3AF; margin-top: 2px; font-weight: 500; }
+
+/* ── SECTION HEADER ── */
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #E5E9F2; }
+.section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9CA3AF; display: flex; align-items: center; gap: 8px; }
+.section-label-dot { width: 8px; height: 8px; border-radius: 50%; background: #3DBFBF; }
+.result-info { font-size: 12px; color: #9CA3AF; }
+.result-info b { color: #1B2340; }
+
+/* ── JOBS GRID ── */
+.jobs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+/* ── JOB CARD ── */
+.job-card {
+  background: #fff;
+  border: 1.5px solid #E5E9F2;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.job-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background 0.15s; }
+.job-card:hover { border-color: #3DBFBF; box-shadow: 0 4px 20px rgba(61,191,191,0.12); transform: translateY(-2px); }
+.job-card:hover::before { background: #3DBFBF; }
+
+.jc-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.jc-logo { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.c0{background:#E8F8F8;color:#0D9488}
+.c1{background:#FEF9EC;color:#D97706}
+.c2{background:#EEF0F7;color:#1B2340}
+.c3{background:#FEF2F2;color:#DC2626}
+.c4{background:#F3F0FF;color:#7C3AED}
+.c5{background:#FFF0FB;color:#BE185D}
+.c6{background:#EDFDF4;color:#166534}
+.c7{background:#FFF7ED;color:#C2410C}
+.jc-time { font-size: 10px; color: #9CA3AF; white-space: nowrap; }
+.jc-title { font-size: 14px; font-weight: 700; color: #1B2340; line-height: 1.3; }
+.jc-agency { font-size: 12px; color: #6B7280; margin-top: 2px; }
+.jc-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag { font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 20px; }
+.tag-loc { background: #F4F6FA; color: #374151; border: 1px solid #E5E9F2; display: flex; align-items: center; gap: 3px; }
+.tag-remote { background: #E8F8F8; color: #0D9488; }
+.tag-hybrid { background: #FEF9EC; color: #D97706; }
+.tag-onsite { background: #F4F6FA; color: #6B7280; }
+.tag-cat { background: #EEF0F7; color: #1B2340; }
+.tag-seniority { background: #F3F0FF; color: #7C3AED; }
+.jc-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid #F0F2F8; margin-top: auto; }
+.jc-source { font-size: 11px; color: #9CA3AF; }
+.jc-apply { font-size: 11px; font-weight: 600; color: #fff; background: #1B2340; border: none; border-radius: 7px; padding: 6px 14px; cursor: pointer; text-decoration: none; transition: background 0.12s; font-family: inherit; white-space: nowrap; }
+.jc-apply:hover { background: #3DBFBF; }
+
+/* ── SKELETON ── */
+.skeleton-card { background: #fff; border: 1.5px solid #E5E9F2; border-radius: 12px; padding: 18px; animation: shimmer 1.5s ease-in-out infinite; }
+@keyframes shimmer { 0%,100%{opacity:1}50%{opacity:0.5} }
+.sk-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: center; }
+.sk-logo { width: 40px; height: 40px; background: #E5E9F2; border-radius: 10px; flex-shrink: 0; }
+.sk-lines { flex: 1; }
+.sk-line { height: 11px; background: #E5E9F2; border-radius: 4px; margin-bottom: 7px; }
+.sk-line.w80{width:80%}.sk-line.w55{width:55%}.sk-line.w35{width:35%}
+.sk-tags { display: flex; gap: 6px; }
+.sk-tag { height: 22px; width: 60px; background: #E5E9F2; border-radius: 20px; }
+
+/* ── EMPTY / ERROR ── */
+.empty-state { grid-column: 1/-1; text-align: center; padding: 64px 20px; }
+.empty-state h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #1B2340; }
+.empty-state p { color: #6B7280; font-size: 13px; }
+.error-box { grid-column: 1/-1; background: #FEF2F2; border: 1px solid #FECACA; border-radius: 12px; padding: 28px; text-align: center; }
+.error-box h3 { color: #DC2626; font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+.error-box p { color: #6B7280; font-size: 13px; margin-bottom: 16px; }
+.agency-grid { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.agency-chip { font-size: 11px; font-weight: 600; color: #0D9488; border: 1px solid #AEECD8; border-radius: 20px; padding: 4px 12px; text-decoration: none; background: #E8F8F8; }
+
+@media(max-width:1100px){ .jobs-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:768px){
+  .body-wrap { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #E5E9F2; padding: 12px 0; display: flex; flex-wrap: wrap; gap: 0; }
+  .sb-section { padding: 8px 12px; border-bottom: none; flex: 1; min-width: 140px; }
+  .jobs-grid { grid-template-columns: 1fr; }
+  .metrics { flex-wrap: wrap; }
+  .header-search { width: 200px; }
+}
 </style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="#">
-    <div class="nav-logo-img">
+<!-- HEADER -->
+<header class="header">
+  <a class="header-logo" href="#">
+    <div class="header-logo-img">
       <img src="https://iuhhcbvlgmlvflwzcdss.supabase.co/storage/v1/object/public/Job%20Surfers/Logo%20Job%20Surfers%20AI.webp" alt="Job Surfers">
     </div>
-    <span class="nav-logo-text">Job Surfers</span>
+    <span class="header-logo-text">Job Surfers</span>
   </a>
-</nav>
-
-<div class="hero">
-  <div class="hero-pill"><span class="pill-dot"></span> <span id="pill-count">—</span> roles updated today</div>
-  <h1>Find your <em>dream job</em><br>in Latin America</h1>
-  <p class="hero-sub">Curated opportunities from 40+ top recruiting agencies.</p>
-  <div class="tracker-hint">
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8l2 2 4-4"/></svg>
-    Complete your application tracker after applying
-  </div>
-  <div class="hero-search">
-    <div class="sf">
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>
-      <input id="search-role" placeholder="Job title, skill or company..." oninput="applyFilters()">
+  <div class="header-right">
+    <div class="header-search">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>
+      <input id="q-search" placeholder="Search by role, skill, country..." oninput="doFilter()">
     </div>
-    <div class="ssep"></div>
-    <div class="sf" style="max-width:160px">
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2a5 5 0 015 5c0 3.5-5 9-5 9S3 10.5 3 7a5 5 0 015-5z"/></svg>
-      <input id="search-loc" placeholder="Remote or country" oninput="applyFilters()">
-    </div>
-    <button class="sbtn" onclick="applyFilters()">Search</button>
+    <div class="live-badge"><span class="live-dot"></span><span id="nav-count">—</span> live roles</div>
   </div>
-  <div class="popular">
-    <span class="pop-label">Popular:</span>
-    <a onclick="setSearch('Engineer')">Engineer</a>
-    <a onclick="setSearch('Senior')">Senior</a>
-    <a onclick="setSearch('Remote')">Remote</a>
-    <a onclick="setSearch('Sales')">Sales</a>
-    <a onclick="setSearch('React')">React</a>
-  </div>
-</div>
+</header>
 
-<div class="stats-bar">
-  <span><b id="total-count">—</b> active roles</span>
-  <span class="sdot">·</span>
-  <span><b>40+</b> agencies</span>
-  <span class="sdot">·</span>
-  <span>Updated <b>daily at 6 AM</b></span>
-</div>
+<div class="body-wrap">
 
-<div class="layout">
+  <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="fbox">
-      <div class="ftitle">Category</div>
-      <div class="fopt" onclick="toggleFilter('cat','tech',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Tech &amp; Engineering</label><span class="fcount" id="cnt-tech">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','sales',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Sales</label><span class="fcount" id="cnt-sales">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','marketing',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Marketing</label><span class="fcount" id="cnt-marketing">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','design',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Design</label><span class="fcount" id="cnt-design">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','finance',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Finance</label><span class="fcount" id="cnt-finance">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','hr',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> HR &amp; Talent</label><span class="fcount" id="cnt-hr">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','data',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Data</label><span class="fcount" id="cnt-data">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','ops',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Operations</label><span class="fcount" id="cnt-ops">—</span></div>
+
+    <div class="sb-section">
+      <div class="sb-title">Category</div>
+      <div class="sb-row" onclick="toggleFilter('cat','tech',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Tech &amp; Eng</span><span class="sb-count" id="fc-tech">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('cat','sales',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Sales</span><span class="sb-count" id="fc-sales">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('cat','marketing',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Marketing</span><span class="sb-count" id="fc-marketing">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('cat','design',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Design</span><span class="sb-count" id="fc-design">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('cat','finance',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Finance</span><span class="sb-count" id="fc-finance">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('cat','hr',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">HR &amp; Talent</span><span class="sb-count" id="fc-hr">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('cat','data',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Data</span><span class="sb-count" id="fc-data">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('cat','ops',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Operations</span><span class="sb-count" id="fc-ops">—</span></div>
     </div>
-    <div class="fbox">
-      <div class="ftitle">Work Type</div>
-      <div class="fopt" onclick="toggleFilter('wt','remote',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Remote</label><span class="fcount" id="cnt-remote">—</span></div>
-      <div class="fopt" onclick="toggleFilter('wt','hybrid',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Hybrid</label><span class="fcount" id="cnt-hybrid">—</span></div>
-      <div class="fopt" onclick="toggleFilter('wt','onsite',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> On-site</label><span class="fcount" id="cnt-onsite">—</span></div>
+
+    <div class="sb-section">
+      <div class="sb-title">Seniority</div>
+      <div class="sb-row" onclick="toggleFilter('sn','junior',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Junior</span><span class="sb-count" id="fc-junior">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('sn','mid',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Semi-Senior</span><span class="sb-count" id="fc-mid">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('sn','senior',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Senior</span><span class="sb-count" id="fc-senior">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('sn','lead',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Lead / Manager</span><span class="sb-count" id="fc-lead">—</span></div>
     </div>
-    <div class="fbox">
-      <div class="ftitle">Seniority</div>
-      <div class="fopt" onclick="toggleFilter('sn','junior',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Junior</label><span class="fcount" id="cnt-junior">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','mid',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Mid-level</label><span class="fcount" id="cnt-mid">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','senior',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Senior</label><span class="fcount" id="cnt-senior">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','lead',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Lead</label><span class="fcount" id="cnt-lead">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','director',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Director</label><span class="fcount" id="cnt-director">—</span></div>
+
+    <div class="sb-section">
+      <div class="sb-title">Work Type</div>
+      <div class="sb-row" onclick="toggleFilter('wt','remote',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Remote</span><span class="sb-count" id="fc-remote">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('wt','hybrid',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">Hybrid</span><span class="sb-count" id="fc-hybrid">—</span></div>
+      <div class="sb-row" onclick="toggleFilter('wt','onsite',this)"><div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="sb-label">On-site</span><span class="sb-count" id="fc-onsite">—</span></div>
     </div>
+
+    <div class="sb-section">
+      <div class="sb-title">Agency</div>
+      <div id="agency-filters"></div>
+    </div>
+
   </aside>
 
-  <div>
-    <div class="list-header">
-      <div class="lh-left">
-        <h2 id="results-title">Loading jobs...</h2>
-        <span id="results-sub">Please wait</span>
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="page-header">
+      <h1 class="page-title">Open Roles from <span>Latin America</span></h1>
+      <p class="page-desc">Job Surfers aggregates the best opportunities from 40+ recruiting agencies in LATAM. Apply directly — no middleman.</p>
+    </div>
+
+    <div class="metrics">
+      <div class="metric-card">
+        <div class="metric-num teal" id="m-total">—</div>
+        <div class="metric-label">active roles</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" id="m-remote">—</div>
+        <div class="metric-label">remote roles</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num" id="m-agencies">40+</div>
+        <div class="metric-label">agencies</div>
       </div>
     </div>
-    <div id="jobs-wrap">
-      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
-      <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
+
+    <div class="section-header">
+      <div class="section-label"><span class="section-label-dot"></span>OPEN ROLES — LAST 4 WEEKS</div>
+      <div class="result-info"><b id="result-count">—</b> results</div>
     </div>
-  </div>
+
+    <div class="jobs-grid" id="jobs-grid">
+      <div class="skeleton-card"><div class="sk-row"><div class="sk-logo"></div><div class="sk-lines"><div class="sk-line w80"></div><div class="sk-line w55"></div></div></div><div class="sk-tags"><div class="sk-tag"></div><div class="sk-tag"></div></div></div>
+      <div class="skeleton-card"><div class="sk-row"><div class="sk-logo"></div><div class="sk-lines"><div class="sk-line w80"></div><div class="sk-line w55"></div></div></div><div class="sk-tags"><div class="sk-tag"></div><div class="sk-tag"></div></div></div>
+      <div class="skeleton-card"><div class="sk-row"><div class="sk-logo"></div><div class="sk-lines"><div class="sk-line w80"></div><div class="sk-line w55"></div></div></div><div class="sk-tags"><div class="sk-tag"></div><div class="sk-tag"></div></div></div>
+      <div class="skeleton-card"><div class="sk-row"><div class="sk-logo"></div><div class="sk-lines"><div class="sk-line w80"></div><div class="sk-line w55"></div></div></div><div class="sk-tags"><div class="sk-tag"></div><div class="sk-tag"></div></div></div>
+      <div class="skeleton-card"><div class="sk-row"><div class="sk-logo"></div><div class="sk-lines"><div class="sk-line w80"></div><div class="sk-line w55"></div></div></div><div class="sk-tags"><div class="sk-tag"></div><div class="sk-tag"></div></div></div>
+      <div class="skeleton-card"><div class="sk-row"><div class="sk-logo"></div><div class="sk-lines"><div class="sk-line w80"></div><div class="sk-line w55"></div></div></div><div class="sk-tags"><div class="sk-tag"></div><div class="sk-tag"></div></div></div>
+    </div>
+
+  </main>
 </div>
 
 <script>
-const SUPABASE_URL = "https://iuhhcbvlgmlvflwzcdss.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1aGhjYnZsZ21sdmZsd3pjZHNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2NzQ4NDksImV4cCI6MjA4OTI1MDg0OX0.2YSn_tK8Oz7mZxC3hGqG0y208a5JBEPqGTyhAG1Qt8w";
+const SB_URL = "https://iuhhcbvlgmlvflwzcdss.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1aGhjYnZsZ21sdmZsd3pjZHNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2NzQ4NDksImV4cCI6MjA4OTI1MDg0OX0.2YSn_tK8Oz7mZxC3hGqG0y208a5JBEPqGTyhAG1Qt8w";
 
-const AGENCIES = [
-  {name:"Activate Talent",url:"https://apply.workable.com/careersactivatetalent/"},
-  {name:"Athyna",url:"https://www.athyna.com/"},
-  {name:"Nearsure",url:"https://www.nearsure.com/job-opportunities"},
-  {name:"Andela",url:"https://talent.andela.com/"},
-  {name:"Silver.dev",url:"https://silver.dev"},
-  {name:"Near",url:"https://jobs.hirewithnear.com/jobs/"},
-  {name:"Simera",url:"https://jobs.simera.io/"},
-  {name:"TLNT",url:"https://recruitcrm.io/jobs/TLNT_Group_jobs"},
+const PARTNERS = [
+  {name:"Forward",url:"https://work.withforward.com/"},{name:"Athyna",url:"https://www.athyna.com/"},
+  {name:"Activate Talent",url:"https://apply.workable.com/careersactivatetalent/"},{name:"Strider",url:"http://app.onstrider.com/r/jobsurfers"},
+  {name:"The Flock",url:"https://www.theflock.com/en/talent/our-openings"},{name:"Sur",url:"https://apply.workable.com/hiresur/"},
+  {name:"HireBoost",url:"https://thehireboost.com/"},{name:"HireLatam",url:"https://www.hirelatam.com/"},
+  {name:"Worldteams",url:"https://www.worldteams.com/"},{name:"Howdy",url:"https://www.howdy.com/"},
+  {name:"Kadre",url:"https://www.wearekadre.com/"},{name:"KalaTalent",url:"https://www.kalatalent.com/"},
+  {name:"Lupa",url:"https://www.lupahire.com/"},{name:"Near",url:"https://jobs.hirewithnear.com/jobs/"},
+  {name:"Nearsure",url:"https://www.nearsure.com/job-opportunities"},{name:"Nexton",url:"https://www.nexton.com/"},
+  {name:"Pitcheers",url:"https://pitcheers.com/jobs-search-result/"},{name:"Simera",url:"https://jobs.simera.io/"},
+  {name:"TLNT",url:"https://recruitcrm.io/jobs/TLNT_Group_jobs"},{name:"Webstarted",url:"https://www.webstarted.com/"},
+  {name:"Andela",url:"https://talent.andela.com/"},{name:"Purrfect Hire",url:"https://www.purrfecthire.com/"},
+  {name:"Silver Dev",url:"http://silver.dev"},{name:"Torre",url:"https://torre.ai/"},
+  {name:"Latam Jobs",url:"https://www.latamjobs.com/"},{name:"LatamCent",url:"https://latamcent.com/"},
+  {name:"Remote Talent",url:"https://apply.workable.com/remote-talent-latam/"},{name:"Agent Careers",url:"http://www.getagents.co"},
+  {name:"Baja Nearshore",url:"https://www.bajanearshore.com/"},{name:"Better Pros",url:"https://www.betterpros.com/"},
+  {name:"Brazo Derecho",url:"https://brazoderecho.com/"},{name:"Delfos HR",url:"https://www.delfoshr.com/"},
+  {name:"Devlane",url:"https://devlane.applytojob.com/apply"},{name:"Prometeo",url:"https://www.prometeotalent.com/"},
+  {name:"Retalent",url:"https://www.retalent.com/"},{name:"Upscale",url:"https://www.upscale.lat"},
 ];
 
-const COLORS = ['lt','lo','ln','lc','lp'];
-let allJobs = [];
-let filters = { cat: [], wt: [], sn: [] };
+const COLORS = ['c0','c1','c2','c3','c4','c5','c6','c7'];
+let ALL = [];
+let F = { cat:[], wt:[], sn:[], agency:[] };
 
-function esc(s) {
-  return String(s||'')
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#39;');
+function colorFor(n) { let h=0; for(const c of (n||'')) h=(h*31+c.charCodeAt(0))&0xffff; return COLORS[h%COLORS.length]; }
+function inits(n) { return (n||'?').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase()||'?'; }
+function cap(s) { return s?s.charAt(0).toUpperCase()+s.slice(1):''; }
+function ago(iso) {
+  if(!iso) return '';
+  const s=Math.floor((Date.now()-new Date(iso))/1000);
+  if(s<3600) return Math.floor(s/60)+'m ago';
+  if(s<86400) return Math.floor(s/3600)+'h ago';
+  if(s<604800) return Math.floor(s/86400)+'d ago';
+  return Math.floor(s/604800)+'w ago';
 }
 
-function logoClass(name) {
-  let h = 0;
-  for (let c of (name||'')) h = (h * 31 + c.charCodeAt(0)) & 0xffff;
-  return COLORS[h % COLORS.length];
+function toggleFilter(g,v,el) {
+  const a=F[g], i=a.indexOf(v);
+  if(i>-1){a.splice(i,1);el.classList.remove('active');}
+  else{a.push(v);el.classList.add('active');}
+  doFilter();
 }
 
-function initials(name) {
-  return (name||'?').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase()||'?';
-}
-
-function timeAgo(dateStr) {
-  if (!dateStr) return 'Recently';
-  const diff = Math.floor((Date.now() - new Date(dateStr)) / 1000);
-  if (diff < 3600) return Math.floor(diff/60) + 'm ago';
-  if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
-  if (diff < 604800) return Math.floor(diff/86400) + 'd ago';
-  return Math.floor(diff/604800) + 'w ago';
-}
-
-function setSearch(val) {
-  document.getElementById('search-role').value = val;
-  applyFilters();
-}
-
-function toggleFilter(group, val, el) {
-  const cb = el.querySelector('input[type=checkbox]');
-  const idx = filters[group].indexOf(val);
-  if (idx > -1) { filters[group].splice(idx,1); el.classList.remove('on'); cb.checked = false; }
-  else { filters[group].push(val); el.classList.add('on'); cb.checked = true; }
-  applyFilters();
-}
-
-function applyFilters() {
-  const role = document.getElementById('search-role').value.toLowerCase();
-  const loc  = document.getElementById('search-loc').value.toLowerCase();
-  const filtered = allJobs.filter(j => {
-    const mRole = !role || (j.title||'').toLowerCase().includes(role) || (j.source_name||'').toLowerCase().includes(role);
-    const mLoc  = !loc  || (j.location||'').toLowerCase().includes(loc) || (j.work_type||'').toLowerCase().includes(loc);
-    const mCat  = filters.cat.length === 0 || filters.cat.includes(j.category);
-    const mWt   = filters.wt.length  === 0 || filters.wt.includes(j.work_type);
-    const mSn   = filters.sn.length  === 0 || filters.sn.includes(j.seniority);
-    return mRole && mLoc && mCat && mWt && mSn;
+function doFilter() {
+  const q = document.getElementById('q-search').value.trim().toLowerCase();
+  const res = ALL.filter(j => {
+    if(q && !(j.title||'').toLowerCase().includes(q) && !(j.source_name||'').toLowerCase().includes(q) && !(j.location||'').toLowerCase().includes(q)) return false;
+    if(F.cat.length && !F.cat.includes(j.category)) return false;
+    if(F.wt.length  && !F.wt.includes(j.work_type)) return false;
+    if(F.sn.length  && !F.sn.includes(j.seniority)) return false;
+    if(F.agency.length && !F.agency.includes(j.source_id)) return false;
+    return true;
   });
-  renderJobs(filtered);
+  renderGrid(res);
 }
 
-function updateCounts() {
-  ['tech','sales','marketing','design','finance','hr','data','ops'].forEach(k => {
-    const el = document.getElementById('cnt-'+k);
-    if (el) el.textContent = allJobs.filter(j=>j.category===k).length;
-  });
-  ['remote','hybrid','onsite'].forEach(w => {
-    const el = document.getElementById('cnt-'+w);
-    if (el) el.textContent = allJobs.filter(j=>j.work_type===w).length;
-  });
-  ['junior','mid','senior','lead','director'].forEach(s => {
-    const el = document.getElementById('cnt-'+s);
-    if (el) el.textContent = allJobs.filter(j=>j.seniority===s).length;
-  });
-}
+function renderGrid(jobs) {
+  const grid = document.getElementById('jobs-grid');
+  document.getElementById('result-count').textContent = jobs.length;
+  grid.innerHTML = '';
 
-function createCard(j) {
-  const card = document.createElement('a');
-  card.className = 'jcard';
-  card.href = j.apply_url || '#';
-  card.target = '_blank';
-  card.rel = 'noopener';
-
-  const cls = logoClass(j.source_name);
-  const ini = initials(j.source_name);
-  const ago = timeAgo(j.scraped_at);
-  const loc = j.location || 'LATAM';
-
-  // Logo
-  const logo = document.createElement('div');
-  logo.className = 'jlogo ' + cls;
-  logo.textContent = ini;
-  card.appendChild(logo);
-
-  // Info
-  const info = document.createElement('div');
-  info.className = 'jinfo';
-
-  const title = document.createElement('div');
-  title.className = 'jtitle';
-  title.textContent = j.title || '';
-  info.appendChild(title);
-
-  const meta = document.createElement('div');
-  meta.className = 'jmeta';
-  meta.textContent = (j.source_name || '') + ' · ' + loc;
-  info.appendChild(meta);
-
-  const tags = document.createElement('div');
-  tags.className = 'jtags';
-  if (j.category) { const t = document.createElement('span'); t.className='tag tn'; t.textContent=j.category.charAt(0).toUpperCase()+j.category.slice(1); tags.appendChild(t); }
-  if (j.work_type) { const t = document.createElement('span'); t.className='tag tt'; t.textContent=j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1); tags.appendChild(t); }
-  if (j.seniority) { const t = document.createElement('span'); t.className='tag tg'; t.textContent=j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1); tags.appendChild(t); }
-  info.appendChild(tags);
-  card.appendChild(info);
-
-  // Right (time + apply)
-  const right = document.createElement('div');
-  right.className = 'jright';
-
-  const date = document.createElement('span');
-  date.className = 'jdate';
-  date.textContent = ago;
-  right.appendChild(date);
-
-  const btn = document.createElement('a');
-  btn.className = 'abtn';
-  btn.href = j.apply_url || '#';
-  btn.target = '_blank';
-  btn.rel = 'noopener';
-  btn.textContent = 'Apply →';
-  btn.onclick = function(e) { e.stopPropagation(); };
-  right.appendChild(btn);
-
-  card.appendChild(right);
-  return card;
-}
-
-function renderJobs(jobs) {
-  const wrap = document.getElementById('jobs-wrap');
-  document.getElementById('total-count').textContent = allJobs.length;
-  document.getElementById('pill-count').textContent  = allJobs.length;
-  document.getElementById('results-title').textContent = jobs.length + ' jobs found';
-  document.getElementById('results-sub').textContent = 'Sorted by latest';
-
-  if (jobs.length === 0) {
-    wrap.innerHTML = '<div class="empty-state"><h3>No roles match your search</h3><p>Try adjusting your filters.</p></div>';
+  if(!jobs.length) {
+    const empty = document.createElement('div');
+    empty.className = 'empty-state';
+    empty.innerHTML = '<h3>No roles match your search</h3><p>Try different keywords or clear your filters.</p>';
+    grid.appendChild(empty);
     return;
   }
 
-  const list = document.createElement('div');
-  list.className = 'job-list';
-  jobs.forEach(j => list.appendChild(createCard(j)));
-  wrap.innerHTML = '';
-  wrap.appendChild(list);
+  jobs.forEach(j => {
+    const card = document.createElement('a');
+    card.className = 'job-card';
+    card.href = j.apply_url || '#';
+    card.target = '_blank';
+    card.rel = 'noopener noreferrer';
+
+    // header row
+    const hdr = document.createElement('div');
+    hdr.className = 'jc-header';
+    const logo = document.createElement('div');
+    logo.className = 'jc-logo ' + colorFor(j.source_name);
+    logo.textContent = inits(j.source_name);
+    const time = document.createElement('span');
+    time.className = 'jc-time';
+    time.textContent = ago(j.scraped_at);
+    hdr.appendChild(logo); hdr.appendChild(time);
+    card.appendChild(hdr);
+
+    // title
+    const title = document.createElement('div');
+    title.className = 'jc-title';
+    title.textContent = j.title || '(Untitled)';
+    card.appendChild(title);
+
+    // agency
+    const agency = document.createElement('div');
+    agency.className = 'jc-agency';
+    agency.textContent = (j.source_name||'') + (j.location ? ' · ' + j.location : '');
+    card.appendChild(agency);
+
+    // tags
+    const tags = document.createElement('div');
+    tags.className = 'jc-tags';
+    const addTag = (text, cls) => {
+      if(!text) return;
+      const t = document.createElement('span');
+      t.className = 'tag ' + cls;
+      t.textContent = text;
+      tags.appendChild(t);
+    };
+    addTag(cap(j.category), 'tag-cat');
+    if(j.work_type) addTag(cap(j.work_type), 'tag-'+j.work_type);
+    if(j.seniority) addTag(cap(j.seniority), 'tag-seniority');
+    card.appendChild(tags);
+
+    // footer
+    const footer = document.createElement('div');
+    footer.className = 'jc-footer';
+    const src = document.createElement('span');
+    src.className = 'jc-source';
+    src.textContent = j.source_name || '';
+    const btn = document.createElement('a');
+    btn.className = 'jc-apply';
+    btn.href = j.apply_url || '#';
+    btn.target = '_blank';
+    btn.rel = 'noopener noreferrer';
+    btn.textContent = 'Apply →';
+    btn.addEventListener('click', e => e.stopPropagation());
+    footer.appendChild(src); footer.appendChild(btn);
+    card.appendChild(footer);
+
+    grid.appendChild(card);
+  });
 }
 
-function showError() {
-  document.getElementById('jobs-wrap').innerHTML =
-    '<div class="error-state"><h3>Could not load jobs</h3><p>Browse our partner agencies directly:</p>'
-    + '<div class="agency-links">'+AGENCIES.map(a=>'<a class="agency-link" href="'+a.url+'" target="_blank">'+a.name+'</a>').join('')+'</div></div>';
+function updateCounts() {
+  const c=(id,fn)=>{const el=document.getElementById(id);if(el)el.textContent=ALL.filter(fn).length;};
+  c('fc-tech',j=>j.category==='tech'); c('fc-sales',j=>j.category==='sales');
+  c('fc-marketing',j=>j.category==='marketing'); c('fc-design',j=>j.category==='design');
+  c('fc-finance',j=>j.category==='finance'); c('fc-hr',j=>j.category==='hr');
+  c('fc-data',j=>j.category==='data'); c('fc-ops',j=>j.category==='ops');
+  c('fc-remote',j=>j.work_type==='remote'); c('fc-hybrid',j=>j.work_type==='hybrid');
+  c('fc-onsite',j=>j.work_type==='onsite');
+  c('fc-junior',j=>j.seniority==='junior'); c('fc-mid',j=>j.seniority==='mid');
+  c('fc-senior',j=>j.seniority==='senior'); c('fc-lead',j=>j.seniority==='lead');
+  const remote = ALL.filter(j=>j.work_type==='remote').length;
+  document.getElementById('m-total').textContent = ALL.length;
+  document.getElementById('m-remote').textContent = remote;
+  document.getElementById('nav-count').textContent = ALL.length;
 }
 
-async function loadJobs() {
+function buildAgencyFilters() {
+  const sources = [...new Map(ALL.map(j=>[j.source_id, j.source_name])).entries()]
+    .filter(([id])=>id).sort((a,b)=>a[1].localeCompare(b[1]));
+  const container = document.getElementById('agency-filters');
+  container.innerHTML = '';
+  sources.forEach(([sid, sname]) => {
+    const count = ALL.filter(j=>j.source_id===sid).length;
+    const row = document.createElement('div');
+    row.className = 'sb-row';
+    row.onclick = () => toggleFilter('agency', sid, row);
+    row.innerHTML = '<div class="sb-check"><svg class="sb-tick" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2.5"><path d="M2 5l2.5 2.5L8 3"/></svg></div>'
+      + '<span class="sb-label">' + sname + '</span>'
+      + '<span class="sb-count">' + count + '</span>';
+    container.appendChild(row);
+  });
+}
+
+async function load() {
   try {
+    const fourWeeksAgo = new Date(Date.now() - 28*24*60*60*1000).toISOString();
     const res = await fetch(
-      SUPABASE_URL + '/rest/v1/jobs?is_active=eq.true&order=scraped_at.desc',
-      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY } }
+      SB_URL + '/rest/v1/jobs?is_active=eq.true&scraped_at=gte.' + fourWeeksAgo + '&order=scraped_at.desc&limit=2000',
+      { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY } }
     );
-    if (!res.ok) throw new Error('fetch failed');
-    allJobs = await res.json();
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    ALL = await res.json();
     updateCounts();
-    applyFilters();
-  } catch(e) { showError(); }
+    buildAgencyFilters();
+    doFilter();
+  } catch(err) {
+    console.error(err);
+    const grid = document.getElementById('jobs-grid');
+    grid.innerHTML = '';
+    const box = document.createElement('div');
+    box.className = 'error-box';
+    box.innerHTML = '<h3>Could not load jobs</h3><p>Browse our partner agencies directly:</p>'
+      + '<div class="agency-grid">' + PARTNERS.map(p=>'<a class="agency-chip" href="'+p.url+'" target="_blank" rel="noopener">'+p.name+'</a>').join('') + '</div>';
+    grid.appendChild(box);
+    document.getElementById('result-count').textContent = '0';
+  }
 }
 
-loadJobs();
+load();
 </script>
 </body>
 </html>
