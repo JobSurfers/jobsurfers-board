@@ -44,7 +44,7 @@
   .layout { display: grid; grid-template-columns: 200px 1fr; gap: 20px; max-width: 1200px; margin: 20px auto; padding: 0 28px 40px; }
 
   /* SIDEBAR */
-  .sidebar { display: flex; flex-direction: column; gap: 8px; }
+  .sidebar { display: flex; flex-direction: column; gap: 8px; position: sticky; top: 20px; align-self: start; }
   .fbox { background: #fff; border-radius: 8px; border: 1px solid #ECEAE5; padding: 12px 14px; }
   .ftitle { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #9CA3AF; margin-bottom: 8px; }
   .fopt { display: flex; align-items: center; justify-content: space-between; padding: 5px 6px; border-radius: 5px; cursor: pointer; user-select: none; }
@@ -64,89 +64,93 @@
   .lh-left span { font-size: 11px; color: #9CA3AF; margin-top: 2px; display: block; }
 
   /* SKELETON */
-  .skeleton-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 12px; padding: 16px; animation: shimmer 1.5s infinite; height: 200px; }
+  .jobs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 14px; padding: 18px; animation: shimmer 1.5s infinite; height: 220px; }
   @keyframes shimmer { 0%,100%{opacity:1}50%{opacity:0.5} }
   .sk-line { height: 12px; background: #ECEAE5; border-radius: 4px; margin-bottom: 10px; }
   .sk-line.w60{width:60%}.sk-line.w40{width:40%}.sk-line.w25{width:25%}
 
-  /* GRID */
-  .jobs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-
-  /* CARD — flex column, footer siempre abajo */
+  /* ===================== CARD ===================== */
   .jcard {
     background: #fff;
-    border: 1px solid #ECEAE5;
-    border-radius: 12px;
-    padding: 16px;
+    border: 1.5px solid #ECEAE5;
+    border-radius: 14px;
+    padding: 18px;
     display: flex;
     flex-direction: column;
+    gap: 0;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s;
-    min-height: 200px;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    overflow: hidden;
   }
   .jcard:hover {
     border-color: #3DBFBF;
-    box-shadow: 0 4px 16px rgba(61,191,191,0.1);
-    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(61,191,191,0.12);
+    transform: translateY(-2px);
   }
 
-  /* Top row: logo + agency */
-  .jcard-top {
+  /* Row 1: logo + agency + time */
+  .jcard-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 14px;
   }
   .jlogo {
-    width: 36px; height: 36px; border-radius: 8px;
+    width: 40px; height: 40px; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 11px; flex-shrink: 0;
+    font-weight: 700; font-size: 13px; flex-shrink: 0;
   }
   .lt{background:#F0FDF9;color:#0D9488}
   .lo{background:#FEF9EC;color:#D97706}
   .ln{background:#F1F2F7;color:#1B2340}
   .lc{background:#FEF2F2;color:#DC2626}
   .lp{background:#F5F3FF;color:#7C3AED}
-  .jagency { font-size: 10px; color: #9CA3AF; font-weight: 500; }
 
-  /* Title */
+  .jcard-agency-wrap { flex: 1; min-width: 0; }
+  .jagency { font-size: 12px; font-weight: 600; color: #374151; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .jtime { font-size: 10px; color: #9CA3AF; display: block; margin-top: 1px; }
+
+  /* Row 2: title */
   .jtitle {
-    font-size: 14px; font-weight: 600; color: #1a1a1a;
+    font-size: 15px; font-weight: 700; color: #1a1a1a;
     line-height: 1.3; margin-bottom: 10px;
   }
 
-  /* Tags */
-  .jtags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px; }
-  .tag { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; }
-  .tt{background:#F0FDF9;color:#0D9488;border:1px solid #AEECD8}
-  .to{background:#FEF9EC;color:#D97706;border:1px solid #FDE68A}
-  .tg{background:#F7F6F3;color:#6B7280;border:1px solid #ECEAE5}
-  .tn{background:#F1F2F7;color:#1B2340;border:1px solid #D1D5E0}
-
-  /* Footer — pegado al fondo de la card con margin-top:auto */
-  .jcard-footer {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 12px;
-    border-top: 1px solid #F4F3F0;
-  }
+  /* Row 3: location */
   .jlocation {
-    font-size: 10px; color: #6B7280;
-    display: flex; align-items: center; gap: 3px;
+    display: flex; align-items: center; gap: 4px;
+    font-size: 11px; color: #6B7280; margin-bottom: 12px;
   }
-  .abtn {
-    font-size: 11px; font-weight: 600;
-    color: #fff; background: #1a1a1a;
-    border: none; border-radius: 6px;
-    padding: 5px 12px; cursor: pointer;
-    text-decoration: none; white-space: nowrap;
+
+  /* Row 4: tags */
+  .jtags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+  .tag { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 20px; }
+  .tt { background: #E0F7F7; color: #0D9488; }
+  .to { background: #FEF9EC; color: #D97706; }
+  .tg { background: #F4F3F0; color: #6B7280; }
+  .tn { background: #EEF0F7; color: #1B2340; }
+
+  /* Row 5: apply button — full width, always at bottom */
+  .jcard-apply {
+    margin-top: auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 9px;
+    cursor: pointer;
+    text-decoration: none;
     transition: background 0.12s;
   }
-  .abtn:hover { background: #3DBFBF; }
+  .jcard-apply:hover { background: #3DBFBF; }
 
   /* Empty / Error */
   .empty-state { text-align: center; padding: 60px 20px; grid-column: span 3; }
@@ -158,13 +162,11 @@
   .agency-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
   .agency-link { font-size: 11px; font-weight: 600; color: #0D9488; border: 1px solid #AEECD8; border-radius: 20px; padding: 3px 10px; text-decoration: none; background: #F0FDF9; }
 
-  @media (max-width: 960px) {
-    .jobs-grid, .skeleton-grid { grid-template-columns: repeat(2, 1fr); }
-  }
+  @media (max-width: 960px) { .jobs-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px) {
     .layout { grid-template-columns: 1fr; }
     .sidebar { display: none; }
-    .jobs-grid, .skeleton-grid { grid-template-columns: 1fr; }
+    .jobs-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 26px; }
   }
 </style>
@@ -255,7 +257,7 @@
       </div>
     </div>
     <div id="jobs-wrap">
-      <div class="skeleton-grid">
+      <div class="jobs-grid">
         <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
         <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
         <div class="skeleton"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w25"></div></div>
@@ -294,6 +296,15 @@ function logoClass(name) {
 
 function initials(name) {
   return (name||'?').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase()||'?';
+}
+
+function timeAgo(dateStr) {
+  if (!dateStr) return 'Recently posted';
+  const diff = Math.floor((Date.now() - new Date(dateStr)) / 1000);
+  if (diff < 3600) return `${Math.floor(diff/60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff/3600)}h ago`;
+  if (diff < 604800) return `${Math.floor(diff/86400)}d ago`;
+  return `${Math.floor(diff/604800)}w ago`;
 }
 
 function setSearch(val) {
@@ -352,6 +363,7 @@ function renderJobs(jobs) {
   const cards = jobs.map(j => {
     const cls    = logoClass(j.source_name);
     const ini    = initials(j.source_name);
+    const ago    = timeAgo(j.scraped_at);
     const catTag = j.category  ? `<span class="tag tn">${j.category.charAt(0).toUpperCase()+j.category.slice(1)}</span>` : '';
     const wtTag  = j.work_type ? `<span class="tag tt">${j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1)}</span>` : '';
     const snTag  = j.seniority ? `<span class="tag tg">${j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1)}</span>` : '';
@@ -359,19 +371,20 @@ function renderJobs(jobs) {
     const url    = j.apply_url || '#';
 
     return `<a class="jcard" href="${url}" target="_blank" rel="noopener">
-  <div class="jcard-top">
+  <div class="jcard-header">
     <div class="jlogo ${cls}">${ini}</div>
-    <span class="jagency">${j.source_name||''}</span>
+    <div class="jcard-agency-wrap">
+      <span class="jagency">${j.source_name||''}</span>
+      <span class="jtime">${ago}</span>
+    </div>
   </div>
   <div class="jtitle">${j.title||''}</div>
-  <div class="jtags">${catTag}${wtTag}${snTag}</div>
-  <div class="jcard-footer">
-    <span class="jlocation">
-      <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2a5 5 0 015 5c0 3.5-5 9-5 9S3 10.5 3 7a5 5 0 015-5z"/></svg>
-      ${loc}
-    </span>
-    <a class="abtn" href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
+  <div class="jlocation">
+    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2a5 5 0 015 5c0 3.5-5 9-5 9S3 10.5 3 7a5 5 0 015-5z"/></svg>
+    ${loc}
   </div>
+  <div class="jtags">${catTag}${wtTag}${snTag}</div>
+  <a class="jcard-apply" href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
 </a>`;
   }).join('');
 
