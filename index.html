@@ -43,30 +43,35 @@
 
   .layout { display: grid; grid-template-columns: 208px 1fr; gap: 18px; max-width: 1040px; margin: 18px auto; padding: 0 28px 40px; }
 
+  /* SIDEBAR */
   .sidebar { display: flex; flex-direction: column; gap: 8px; }
   .fbox { background: #fff; border-radius: 8px; border: 1px solid #ECEAE5; padding: 12px 14px; }
   .ftitle { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #9CA3AF; margin-bottom: 8px; }
-  .fopt { display: flex; align-items: center; justify-content: space-between; padding: 4px 5px; border-radius: 5px; cursor: pointer; }
+  .fopt { display: flex; align-items: center; justify-content: space-between; padding: 5px 6px; border-radius: 5px; cursor: pointer; user-select: none; }
   .fopt:hover { background: #F7F6F3; }
-  .fopt label { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #374151; cursor: pointer; }
-  .fopt input { width: 13px; height: 13px; accent-color: #3DBFBF; }
+  .fopt.on { background: #F0FDF9; }
+  .fopt.on .flabel { color: #0D9488; font-weight: 600; }
+  .fcheck { width: 14px; height: 14px; border: 1.5px solid #D1D5DB; border-radius: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.12s; margin-right: 7px; }
+  .fopt.on .fcheck { background: #3DBFBF; border-color: #3DBFBF; }
+  .fcheck-inner { display: none; }
+  .fopt.on .fcheck-inner { display: block; }
+  .flabel { font-size: 12px; color: #374151; flex: 1; }
   .fcount { font-size: 10px; color: #9CA3AF; }
-  .fopt.on label { color: #0D9488; font-weight: 500; }
 
+  /* JOB LIST */
   .list-header { display: flex; align-items: center; margin-bottom: 10px; }
   .lh-left h2 { font-size: 13px; font-weight: 600; }
   .lh-left span { font-size: 11px; color: #9CA3AF; margin-top: 1px; display: block; }
 
-  /* Skeleton */
-  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 16px; animation: shimmer 1.5s infinite; }
+  .skeleton { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 16px; margin-bottom: 6px; animation: shimmer 1.5s infinite; }
   @keyframes shimmer { 0%,100%{opacity:1}50%{opacity:0.5} }
   .sk-line { height: 12px; background: #ECEAE5; border-radius: 4px; margin-bottom: 8px; }
-  .sk-line.w60 { width: 60%; }
-  .sk-line.w40 { width: 40%; }
-  .sk-line.w25 { width: 25%; }
+  .sk-line.w60{width:60%}.sk-line.w40{width:40%}.sk-line.w25{width:25%}
 
   .job-list { display: flex; flex-direction: column; gap: 6px; }
-  .jcard { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.12s; text-decoration: none; color: inherit; }
+
+  /* JOB CARD — todo inline, sin columna derecha separada */
+  .jcard { background: #fff; border: 1px solid #ECEAE5; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; text-decoration: none; color: inherit; transition: all 0.12s; }
   .jcard:hover { border-color: #3DBFBF; box-shadow: 0 2px 12px rgba(61,191,191,0.08); }
   .jlogo { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0; }
   .lt{background:#F0FDF9;color:#0D9488}
@@ -75,23 +80,24 @@
   .lc{background:#FEF2F2;color:#DC2626}
   .lp{background:#F5F3FF;color:#7C3AED}
   .jinfo { flex: 1; min-width: 0; }
-  .jtitle { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
-  .jmeta { font-size: 11px; color: #9CA3AF; margin-bottom: 6px; }
+  .jinfo-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 3px; }
+  .jtitle { font-size: 13px; font-weight: 600; color: #1a1a1a; line-height: 1.3; }
+  .jmeta { font-size: 11px; color: #9CA3AF; margin-bottom: 8px; }
+  .jbottom { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
   .jtags { display: flex; gap: 4px; flex-wrap: wrap; }
   .tag { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; }
   .tt{background:#F0FDF9;color:#0D9488;border:1px solid #AEECD8}
   .to{background:#FEF9EC;color:#D97706;border:1px solid #FDE68A}
   .tg{background:#F7F6F3;color:#6B7280;border:1px solid #ECEAE5}
   .tn{background:#F1F2F7;color:#1B2340;border:1px solid #D1D5E0}
-  .jright { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
-  .jdate { font-size: 10px; color: #9CA3AF; }
-  .abtn { font-size: 11px; font-weight: 600; color: #1a1a1a; border: 1px solid #ECEAE5; border-radius: 6px; padding: 5px 11px; background: #fff; cursor: pointer; font-family: inherit; transition: all 0.12s; text-decoration: none; }
-  .abtn:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .jabtn { font-size: 11px; font-weight: 600; color: #1a1a1a; border: 1px solid #ECEAE5; border-radius: 6px; padding: 4px 11px; background: #fff; cursor: pointer; font-family: inherit; transition: all 0.12s; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+  .jabtn:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
 
-  .empty-state { text-align: center; padding: 60px 20px; color: #9CA3AF; }
+  .empty-state { text-align: center; padding: 60px 20px; }
   .empty-state h3 { font-size: 15px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+  .empty-state p { color: #9CA3AF; font-size: 12px; }
 
-  .error-state { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 12px; }
+  .error-state { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 10px; padding: 20px; text-align: center; }
   .error-state h3 { color: #DC2626; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
   .error-state p { color: #6B7280; font-size: 12px; margin-bottom: 12px; }
   .agency-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
@@ -101,8 +107,6 @@
     .layout { grid-template-columns: 1fr; }
     .sidebar { display: none; }
     .hero h1 { font-size: 26px; }
-    .hero-search { flex-direction: column; }
-    .ssep { display: none; }
   }
 </style>
 </head>
@@ -159,28 +163,28 @@
   <aside class="sidebar">
     <div class="fbox">
       <div class="ftitle">Category</div>
-      <div class="fopt" onclick="toggleFilter('cat','tech',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Tech & Engineering</label><span class="fcount" id="cnt-tech">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','sales',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Sales</label><span class="fcount" id="cnt-sales">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','marketing',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Marketing</label><span class="fcount" id="cnt-marketing">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','design',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Design</label><span class="fcount" id="cnt-design">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','finance',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Finance</label><span class="fcount" id="cnt-finance">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','hr',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> HR & Talent</label><span class="fcount" id="cnt-hr">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','data',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Data</label><span class="fcount" id="cnt-data">—</span></div>
-      <div class="fopt" onclick="toggleFilter('cat','ops',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Operations</label><span class="fcount" id="cnt-ops">—</span></div>
+      <div class="fopt" id="f-tech" onclick="toggleFilter('cat','tech',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Tech & Engineering</span><span class="fcount" id="cnt-tech">—</span></div>
+      <div class="fopt" id="f-sales" onclick="toggleFilter('cat','sales',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Sales</span><span class="fcount" id="cnt-sales">—</span></div>
+      <div class="fopt" id="f-marketing" onclick="toggleFilter('cat','marketing',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Marketing</span><span class="fcount" id="cnt-marketing">—</span></div>
+      <div class="fopt" id="f-design" onclick="toggleFilter('cat','design',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Design</span><span class="fcount" id="cnt-design">—</span></div>
+      <div class="fopt" id="f-finance" onclick="toggleFilter('cat','finance',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Finance</span><span class="fcount" id="cnt-finance">—</span></div>
+      <div class="fopt" id="f-hr" onclick="toggleFilter('cat','hr',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">HR & Talent</span><span class="fcount" id="cnt-hr">—</span></div>
+      <div class="fopt" id="f-data" onclick="toggleFilter('cat','data',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Data</span><span class="fcount" id="cnt-data">—</span></div>
+      <div class="fopt" id="f-ops" onclick="toggleFilter('cat','ops',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Operations</span><span class="fcount" id="cnt-ops">—</span></div>
     </div>
     <div class="fbox">
       <div class="ftitle">Work Type</div>
-      <div class="fopt" onclick="toggleFilter('wt','remote',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Remote</label><span class="fcount" id="cnt-remote">—</span></div>
-      <div class="fopt" onclick="toggleFilter('wt','hybrid',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Hybrid</label><span class="fcount" id="cnt-hybrid">—</span></div>
-      <div class="fopt" onclick="toggleFilter('wt','onsite',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> On-site</label><span class="fcount" id="cnt-onsite">—</span></div>
+      <div class="fopt" id="f-remote" onclick="toggleFilter('wt','remote',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Remote</span><span class="fcount" id="cnt-remote">—</span></div>
+      <div class="fopt" id="f-hybrid" onclick="toggleFilter('wt','hybrid',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Hybrid</span><span class="fcount" id="cnt-hybrid">—</span></div>
+      <div class="fopt" id="f-onsite" onclick="toggleFilter('wt','onsite',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">On-site</span><span class="fcount" id="cnt-onsite">—</span></div>
     </div>
     <div class="fbox">
       <div class="ftitle">Seniority</div>
-      <div class="fopt" onclick="toggleFilter('sn','junior',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Junior</label><span class="fcount" id="cnt-junior">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','mid',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Mid-level</label><span class="fcount" id="cnt-mid">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','senior',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Senior</label><span class="fcount" id="cnt-senior">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','lead',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Lead</label><span class="fcount" id="cnt-lead">—</span></div>
-      <div class="fopt" onclick="toggleFilter('sn','director',this)"><label><input type="checkbox" onclick="event.stopPropagation()"> Director</label><span class="fcount" id="cnt-director">—</span></div>
+      <div class="fopt" id="f-junior" onclick="toggleFilter('sn','junior',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Junior</span><span class="fcount" id="cnt-junior">—</span></div>
+      <div class="fopt" id="f-mid" onclick="toggleFilter('sn','mid',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Mid-level</span><span class="fcount" id="cnt-mid">—</span></div>
+      <div class="fopt" id="f-senior" onclick="toggleFilter('sn','senior',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Senior</span><span class="fcount" id="cnt-senior">—</span></div>
+      <div class="fopt" id="f-lead" onclick="toggleFilter('sn','lead',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Lead</span><span class="fcount" id="cnt-lead">—</span></div>
+      <div class="fopt" id="f-director" onclick="toggleFilter('sn','director',this)"><div class="fcheck"><svg class="fcheck-inner" width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg></div><span class="flabel">Director</span><span class="fcount" id="cnt-director">—</span></div>
     </div>
   </aside>
 
@@ -229,7 +233,7 @@ function logoClass(name) {
 }
 
 function initials(name) {
-  return (name||'?').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase() || '?';
+  return (name||'?').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase()||'?';
 }
 
 function setSearch(val) {
@@ -238,30 +242,27 @@ function setSearch(val) {
 }
 
 function toggleFilter(group, val, el) {
-  const cb = el.querySelector('input[type=checkbox]');
   const idx = filters[group].indexOf(val);
   if (idx > -1) {
     filters[group].splice(idx, 1);
     el.classList.remove('on');
-    cb.checked = false;
   } else {
     filters[group].push(val);
     el.classList.add('on');
-    cb.checked = true;
   }
   applyFilters();
 }
 
 function applyFilters() {
   const role = document.getElementById('search-role').value.toLowerCase();
-  const loc = document.getElementById('search-loc').value.toLowerCase();
+  const loc  = document.getElementById('search-loc').value.toLowerCase();
 
   const filtered = allJobs.filter(j => {
     const mRole = !role || (j.title||'').toLowerCase().includes(role) || (j.source_name||'').toLowerCase().includes(role) || (j.category||'').toLowerCase().includes(role);
-    const mLoc = !loc || (j.location||'').toLowerCase().includes(loc) || (j.work_type||'').toLowerCase().includes(loc);
-    const mCat = filters.cat.length === 0 || filters.cat.includes(j.category);
-    const mWt = filters.wt.length === 0 || filters.wt.includes(j.work_type);
-    const mSn = filters.sn.length === 0 || filters.sn.includes(j.seniority);
+    const mLoc  = !loc  || (j.location||'').toLowerCase().includes(loc) || (j.work_type||'').toLowerCase().includes(loc);
+    const mCat  = filters.cat.length === 0 || filters.cat.includes(j.category);
+    const mWt   = filters.wt.length  === 0 || filters.wt.includes(j.work_type);
+    const mSn   = filters.sn.length  === 0 || filters.sn.includes(j.seniority);
     return mRole && mLoc && mCat && mWt && mSn;
   });
 
@@ -269,56 +270,57 @@ function applyFilters() {
 }
 
 function updateCounts() {
-  const cats = ['tech','sales','marketing','design','finance','hr','data','ops'];
-  cats.forEach(c => {
-    const el = document.getElementById('cnt-' + c);
-    if (el) el.textContent = allJobs.filter(j => j.category === c).length;
+  const catMap = {tech:'tech',sales:'sales',marketing:'marketing',design:'design',finance:'finance',hr:'hr',data:'data',ops:'ops'};
+  Object.keys(catMap).forEach(k => {
+    const el = document.getElementById('cnt-'+k);
+    if (el) el.textContent = allJobs.filter(j => j.category === k).length;
   });
   ['remote','hybrid','onsite'].forEach(w => {
-    const el = document.getElementById('cnt-' + w);
+    const el = document.getElementById('cnt-'+w);
     if (el) el.textContent = allJobs.filter(j => j.work_type === w).length;
   });
   ['junior','mid','senior','lead','director'].forEach(s => {
-    const el = document.getElementById('cnt-' + s);
+    const el = document.getElementById('cnt-'+s);
     if (el) el.textContent = allJobs.filter(j => j.seniority === s).length;
   });
 }
 
 function renderJobs(jobs) {
-  const wrap = document.getElementById('jobs-wrap');
+  const wrap  = document.getElementById('jobs-wrap');
   const title = document.getElementById('results-title');
-  const sub = document.getElementById('results-sub');
+  const sub   = document.getElementById('results-sub');
 
   document.getElementById('total-count').textContent = allJobs.length;
-  document.getElementById('pill-count').textContent = allJobs.length;
+  document.getElementById('pill-count').textContent  = allJobs.length;
 
   if (jobs.length === 0) {
     title.textContent = '0 jobs found';
-    sub.textContent = 'Try different filters or search terms';
+    sub.textContent   = 'Try different filters or search terms';
     wrap.innerHTML = `<div class="empty-state"><h3>No roles match your search</h3><p>Try adjusting your filters or search terms.</p></div>`;
     return;
   }
 
   title.textContent = `${jobs.length} jobs found`;
-  sub.textContent = 'Sorted by latest';
+  sub.textContent   = 'Sorted by latest';
 
   wrap.innerHTML = '<div class="job-list">' + jobs.map(j => {
-    const cls = logoClass(j.source_name);
-    const ini = initials(j.source_name);
-    const wtTag = j.work_type ? `<span class="tag tt">${j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1)}</span>` : '';
-    const catTag = j.category ? `<span class="tag tn">${j.category.charAt(0).toUpperCase()+j.category.slice(1)}</span>` : '';
-    const snTag = j.seniority ? `<span class="tag tg">${j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1)}</span>` : '';
+    const cls    = logoClass(j.source_name);
+    const ini    = initials(j.source_name);
+    const wtTag  = j.work_type ? `<span class="tag tt">${j.work_type.charAt(0).toUpperCase()+j.work_type.slice(1)}</span>` : '';
+    const catTag = j.category  ? `<span class="tag tn">${j.category.charAt(0).toUpperCase()+j.category.slice(1)}</span>`  : '';
+    const snTag  = j.seniority ? `<span class="tag tg">${j.seniority.charAt(0).toUpperCase()+j.seniority.slice(1)}</span>` : '';
     return `
       <a class="jcard" href="${j.apply_url||'#'}" target="_blank" rel="noopener">
         <div class="jlogo ${cls}">${ini}</div>
         <div class="jinfo">
-          <div class="jtitle">${j.title||''}</div>
+          <div class="jinfo-top">
+            <div class="jtitle">${j.title||''}</div>
+          </div>
           <div class="jmeta">${j.source_name||''} · ${j.location||'LATAM'}</div>
-          <div class="jtags">${catTag}${wtTag}${snTag}</div>
-        </div>
-        <div class="jright">
-          <div class="jdate">Recently posted</div>
-          <a class="abtn" href="${j.apply_url||'#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
+          <div class="jbottom">
+            <div class="jtags">${catTag}${wtTag}${snTag}</div>
+            <a class="jabtn" href="${j.apply_url||'#'}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Apply →</a>
+          </div>
         </div>
       </a>`;
   }).join('') + '</div>';
@@ -334,7 +336,7 @@ function showError() {
       </div>
     </div>`;
   document.getElementById('results-title').textContent = 'Could not load jobs';
-  document.getElementById('results-sub').textContent = 'Browse agencies directly below';
+  document.getElementById('results-sub').textContent   = 'Browse agencies directly below';
 }
 
 async function loadJobs() {
