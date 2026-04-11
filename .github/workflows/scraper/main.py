@@ -386,8 +386,7 @@ async def main():
     if all_jobs:
         print("Guardando en Supabase...")
         try:
-            supabase.table("jobs").update({"is_active": False}).eq("is_active", True).execute()
-            supabase.table("jobs").insert(all_jobs).execute()
+supabase.table("jobs").update({"is_active": False}).eq("is_active", True).neq("source_ats", "browser").execute()            supabase.table("jobs").insert(all_jobs).execute()
             print(f"OK: {len(all_jobs)} jobs guardados")
         except Exception as e:
             print(f"ERROR Supabase: {e}")
